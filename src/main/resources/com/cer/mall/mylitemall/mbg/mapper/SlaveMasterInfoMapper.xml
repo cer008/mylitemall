@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cer.mall.mylitemall.mbg.mapper.SlaveMasterInfoMapper">
+  <resultMap id="BaseResultMap" type="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    <id column="Host" jdbcType="CHAR" property="host" />
+    <id column="Port" jdbcType="INTEGER" property="port" />
+    <result column="Number_of_lines" jdbcType="INTEGER" property="numberOfLines" />
+    <result column="Master_log_pos" jdbcType="BIGINT" property="masterLogPos" />
+    <result column="Connect_retry" jdbcType="INTEGER" property="connectRetry" />
+    <result column="Enabled_ssl" jdbcType="BIT" property="enabledSsl" />
+    <result column="Ssl_verify_server_cert" jdbcType="BIT" property="sslVerifyServerCert" />
+    <result column="Heartbeat" jdbcType="REAL" property="heartbeat" />
+    <result column="Retry_count" jdbcType="BIGINT" property="retryCount" />
+    <result column="Enabled_auto_position" jdbcType="BIT" property="enabledAutoPosition" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    <result column="Master_log_name" jdbcType="LONGVARCHAR" property="masterLogName" />
+    <result column="User_name" jdbcType="LONGVARCHAR" property="userName" />
+    <result column="User_password" jdbcType="LONGVARCHAR" property="userPassword" />
+    <result column="Ssl_ca" jdbcType="LONGVARCHAR" property="sslCa" />
+    <result column="Ssl_capath" jdbcType="LONGVARCHAR" property="sslCapath" />
+    <result column="Ssl_cert" jdbcType="LONGVARCHAR" property="sslCert" />
+    <result column="Ssl_cipher" jdbcType="LONGVARCHAR" property="sslCipher" />
+    <result column="Ssl_key" jdbcType="LONGVARCHAR" property="sslKey" />
+    <result column="Bind" jdbcType="LONGVARCHAR" property="bind" />
+    <result column="Ignored_server_ids" jdbcType="LONGVARCHAR" property="ignoredServerIds" />
+    <result column="Uuid" jdbcType="LONGVARCHAR" property="uuid" />
+    <result column="Ssl_crl" jdbcType="LONGVARCHAR" property="sslCrl" />
+    <result column="Ssl_crlpath" jdbcType="LONGVARCHAR" property="sslCrlpath" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    Host, Port, Number_of_lines, Master_log_pos, Connect_retry, Enabled_ssl, Ssl_verify_server_cert, 
+    Heartbeat, Retry_count, Enabled_auto_position
+  </sql>
+  <sql id="Blob_Column_List">
+    Master_log_name, User_name, User_password, Ssl_ca, Ssl_capath, Ssl_cert, Ssl_cipher, 
+    Ssl_key, Bind, Ignored_server_ids, Uuid, Ssl_crl, Ssl_crlpath
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from slave_master_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from slave_master_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from slave_master_info
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from slave_master_info
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfoExample">
+    delete from slave_master_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    insert into slave_master_info (Host, Port, Number_of_lines, 
+      Master_log_pos, Connect_retry, Enabled_ssl, 
+      Ssl_verify_server_cert, Heartbeat, Retry_count, 
+      Enabled_auto_position, Master_log_name, User_name, 
+      User_password, Ssl_ca, Ssl_capath, 
+      Ssl_cert, Ssl_cipher, Ssl_key, 
+      Bind, Ignored_server_ids, Uuid, 
+      Ssl_crl, Ssl_crlpath)
+    values (#{host,jdbcType=CHAR}, #{port,jdbcType=INTEGER}, #{numberOfLines,jdbcType=INTEGER}, 
+      #{masterLogPos,jdbcType=BIGINT}, #{connectRetry,jdbcType=INTEGER}, #{enabledSsl,jdbcType=BIT}, 
+      #{sslVerifyServerCert,jdbcType=BIT}, #{heartbeat,jdbcType=REAL}, #{retryCount,jdbcType=BIGINT}, 
+      #{enabledAutoPosition,jdbcType=BIT}, #{masterLogName,jdbcType=LONGVARCHAR}, #{userName,jdbcType=LONGVARCHAR}, 
+      #{userPassword,jdbcType=LONGVARCHAR}, #{sslCa,jdbcType=LONGVARCHAR}, #{sslCapath,jdbcType=LONGVARCHAR}, 
+      #{sslCert,jdbcType=LONGVARCHAR}, #{sslCipher,jdbcType=LONGVARCHAR}, #{sslKey,jdbcType=LONGVARCHAR}, 
+      #{bind,jdbcType=LONGVARCHAR}, #{ignoredServerIds,jdbcType=LONGVARCHAR}, #{uuid,jdbcType=LONGVARCHAR}, 
+      #{sslCrl,jdbcType=LONGVARCHAR}, #{sslCrlpath,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    insert into slave_master_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="host != null">
+        Host,
+      </if>
+      <if test="port != null">
+        Port,
+      </if>
+      <if test="numberOfLines != null">
+        Number_of_lines,
+      </if>
+      <if test="masterLogPos != null">
+        Master_log_pos,
+      </if>
+      <if test="connectRetry != null">
+        Connect_retry,
+      </if>
+      <if test="enabledSsl != null">
+        Enabled_ssl,
+      </if>
+      <if test="sslVerifyServerCert != null">
+        Ssl_verify_server_cert,
+      </if>
+      <if test="heartbeat != null">
+        Heartbeat,
+      </if>
+      <if test="retryCount != null">
+        Retry_count,
+      </if>
+      <if test="enabledAutoPosition != null">
+        Enabled_auto_position,
+      </if>
+      <if test="masterLogName != null">
+        Master_log_name,
+      </if>
+      <if test="userName != null">
+        User_name,
+      </if>
+      <if test="userPassword != null">
+        User_password,
+      </if>
+      <if test="sslCa != null">
+        Ssl_ca,
+      </if>
+      <if test="sslCapath != null">
+        Ssl_capath,
+      </if>
+      <if test="sslCert != null">
+        Ssl_cert,
+      </if>
+      <if test="sslCipher != null">
+        Ssl_cipher,
+      </if>
+      <if test="sslKey != null">
+        Ssl_key,
+      </if>
+      <if test="bind != null">
+        Bind,
+      </if>
+      <if test="ignoredServerIds != null">
+        Ignored_server_ids,
+      </if>
+      <if test="uuid != null">
+        Uuid,
+      </if>
+      <if test="sslCrl != null">
+        Ssl_crl,
+      </if>
+      <if test="sslCrlpath != null">
+        Ssl_crlpath,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="host != null">
+        #{host,jdbcType=CHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfLines != null">
+        #{numberOfLines,jdbcType=INTEGER},
+      </if>
+      <if test="masterLogPos != null">
+        #{masterLogPos,jdbcType=BIGINT},
+      </if>
+      <if test="connectRetry != null">
+        #{connectRetry,jdbcType=INTEGER},
+      </if>
+      <if test="enabledSsl != null">
+        #{enabledSsl,jdbcType=BIT},
+      </if>
+      <if test="sslVerifyServerCert != null">
+        #{sslVerifyServerCert,jdbcType=BIT},
+      </if>
+      <if test="heartbeat != null">
+        #{heartbeat,jdbcType=REAL},
+      </if>
+      <if test="retryCount != null">
+        #{retryCount,jdbcType=BIGINT},
+      </if>
+      <if test="enabledAutoPosition != null">
+        #{enabledAutoPosition,jdbcType=BIT},
+      </if>
+      <if test="masterLogName != null">
+        #{masterLogName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCa != null">
+        #{sslCa,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCapath != null">
+        #{sslCapath,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCert != null">
+        #{sslCert,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCipher != null">
+        #{sslCipher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslKey != null">
+        #{sslKey,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bind != null">
+        #{bind,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ignoredServerIds != null">
+        #{ignoredServerIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCrl != null">
+        #{sslCrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCrlpath != null">
+        #{sslCrlpath,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfoExample" resultType="java.lang.Integer">
+    select count(*) from slave_master_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update slave_master_info
+    <set>
+      <if test="record.host != null">
+        Host = #{record.host,jdbcType=CHAR},
+      </if>
+      <if test="record.port != null">
+        Port = #{record.port,jdbcType=INTEGER},
+      </if>
+      <if test="record.numberOfLines != null">
+        Number_of_lines = #{record.numberOfLines,jdbcType=INTEGER},
+      </if>
+      <if test="record.masterLogPos != null">
+        Master_log_pos = #{record.masterLogPos,jdbcType=BIGINT},
+      </if>
+      <if test="record.connectRetry != null">
+        Connect_retry = #{record.connectRetry,jdbcType=INTEGER},
+      </if>
+      <if test="record.enabledSsl != null">
+        Enabled_ssl = #{record.enabledSsl,jdbcType=BIT},
+      </if>
+      <if test="record.sslVerifyServerCert != null">
+        Ssl_verify_server_cert = #{record.sslVerifyServerCert,jdbcType=BIT},
+      </if>
+      <if test="record.heartbeat != null">
+        Heartbeat = #{record.heartbeat,jdbcType=REAL},
+      </if>
+      <if test="record.retryCount != null">
+        Retry_count = #{record.retryCount,jdbcType=BIGINT},
+      </if>
+      <if test="record.enabledAutoPosition != null">
+        Enabled_auto_position = #{record.enabledAutoPosition,jdbcType=BIT},
+      </if>
+      <if test="record.masterLogName != null">
+        Master_log_name = #{record.masterLogName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.userName != null">
+        User_name = #{record.userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.userPassword != null">
+        User_password = #{record.userPassword,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCa != null">
+        Ssl_ca = #{record.sslCa,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCapath != null">
+        Ssl_capath = #{record.sslCapath,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCert != null">
+        Ssl_cert = #{record.sslCert,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCipher != null">
+        Ssl_cipher = #{record.sslCipher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslKey != null">
+        Ssl_key = #{record.sslKey,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.bind != null">
+        Bind = #{record.bind,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.ignoredServerIds != null">
+        Ignored_server_ids = #{record.ignoredServerIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.uuid != null">
+        Uuid = #{record.uuid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCrl != null">
+        Ssl_crl = #{record.sslCrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCrlpath != null">
+        Ssl_crlpath = #{record.sslCrlpath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update slave_master_info
+    set Host = #{record.host,jdbcType=CHAR},
+      Port = #{record.port,jdbcType=INTEGER},
+      Number_of_lines = #{record.numberOfLines,jdbcType=INTEGER},
+      Master_log_pos = #{record.masterLogPos,jdbcType=BIGINT},
+      Connect_retry = #{record.connectRetry,jdbcType=INTEGER},
+      Enabled_ssl = #{record.enabledSsl,jdbcType=BIT},
+      Ssl_verify_server_cert = #{record.sslVerifyServerCert,jdbcType=BIT},
+      Heartbeat = #{record.heartbeat,jdbcType=REAL},
+      Retry_count = #{record.retryCount,jdbcType=BIGINT},
+      Enabled_auto_position = #{record.enabledAutoPosition,jdbcType=BIT},
+      Master_log_name = #{record.masterLogName,jdbcType=LONGVARCHAR},
+      User_name = #{record.userName,jdbcType=LONGVARCHAR},
+      User_password = #{record.userPassword,jdbcType=LONGVARCHAR},
+      Ssl_ca = #{record.sslCa,jdbcType=LONGVARCHAR},
+      Ssl_capath = #{record.sslCapath,jdbcType=LONGVARCHAR},
+      Ssl_cert = #{record.sslCert,jdbcType=LONGVARCHAR},
+      Ssl_cipher = #{record.sslCipher,jdbcType=LONGVARCHAR},
+      Ssl_key = #{record.sslKey,jdbcType=LONGVARCHAR},
+      Bind = #{record.bind,jdbcType=LONGVARCHAR},
+      Ignored_server_ids = #{record.ignoredServerIds,jdbcType=LONGVARCHAR},
+      Uuid = #{record.uuid,jdbcType=LONGVARCHAR},
+      Ssl_crl = #{record.sslCrl,jdbcType=LONGVARCHAR},
+      Ssl_crlpath = #{record.sslCrlpath,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update slave_master_info
+    set Host = #{record.host,jdbcType=CHAR},
+      Port = #{record.port,jdbcType=INTEGER},
+      Number_of_lines = #{record.numberOfLines,jdbcType=INTEGER},
+      Master_log_pos = #{record.masterLogPos,jdbcType=BIGINT},
+      Connect_retry = #{record.connectRetry,jdbcType=INTEGER},
+      Enabled_ssl = #{record.enabledSsl,jdbcType=BIT},
+      Ssl_verify_server_cert = #{record.sslVerifyServerCert,jdbcType=BIT},
+      Heartbeat = #{record.heartbeat,jdbcType=REAL},
+      Retry_count = #{record.retryCount,jdbcType=BIGINT},
+      Enabled_auto_position = #{record.enabledAutoPosition,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    update slave_master_info
+    <set>
+      <if test="numberOfLines != null">
+        Number_of_lines = #{numberOfLines,jdbcType=INTEGER},
+      </if>
+      <if test="masterLogPos != null">
+        Master_log_pos = #{masterLogPos,jdbcType=BIGINT},
+      </if>
+      <if test="connectRetry != null">
+        Connect_retry = #{connectRetry,jdbcType=INTEGER},
+      </if>
+      <if test="enabledSsl != null">
+        Enabled_ssl = #{enabledSsl,jdbcType=BIT},
+      </if>
+      <if test="sslVerifyServerCert != null">
+        Ssl_verify_server_cert = #{sslVerifyServerCert,jdbcType=BIT},
+      </if>
+      <if test="heartbeat != null">
+        Heartbeat = #{heartbeat,jdbcType=REAL},
+      </if>
+      <if test="retryCount != null">
+        Retry_count = #{retryCount,jdbcType=BIGINT},
+      </if>
+      <if test="enabledAutoPosition != null">
+        Enabled_auto_position = #{enabledAutoPosition,jdbcType=BIT},
+      </if>
+      <if test="masterLogName != null">
+        Master_log_name = #{masterLogName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userName != null">
+        User_name = #{userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userPassword != null">
+        User_password = #{userPassword,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCa != null">
+        Ssl_ca = #{sslCa,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCapath != null">
+        Ssl_capath = #{sslCapath,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCert != null">
+        Ssl_cert = #{sslCert,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCipher != null">
+        Ssl_cipher = #{sslCipher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslKey != null">
+        Ssl_key = #{sslKey,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bind != null">
+        Bind = #{bind,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ignoredServerIds != null">
+        Ignored_server_ids = #{ignoredServerIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="uuid != null">
+        Uuid = #{uuid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCrl != null">
+        Ssl_crl = #{sslCrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCrlpath != null">
+        Ssl_crlpath = #{sslCrlpath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    update slave_master_info
+    set Number_of_lines = #{numberOfLines,jdbcType=INTEGER},
+      Master_log_pos = #{masterLogPos,jdbcType=BIGINT},
+      Connect_retry = #{connectRetry,jdbcType=INTEGER},
+      Enabled_ssl = #{enabledSsl,jdbcType=BIT},
+      Ssl_verify_server_cert = #{sslVerifyServerCert,jdbcType=BIT},
+      Heartbeat = #{heartbeat,jdbcType=REAL},
+      Retry_count = #{retryCount,jdbcType=BIGINT},
+      Enabled_auto_position = #{enabledAutoPosition,jdbcType=BIT},
+      Master_log_name = #{masterLogName,jdbcType=LONGVARCHAR},
+      User_name = #{userName,jdbcType=LONGVARCHAR},
+      User_password = #{userPassword,jdbcType=LONGVARCHAR},
+      Ssl_ca = #{sslCa,jdbcType=LONGVARCHAR},
+      Ssl_capath = #{sslCapath,jdbcType=LONGVARCHAR},
+      Ssl_cert = #{sslCert,jdbcType=LONGVARCHAR},
+      Ssl_cipher = #{sslCipher,jdbcType=LONGVARCHAR},
+      Ssl_key = #{sslKey,jdbcType=LONGVARCHAR},
+      Bind = #{bind,jdbcType=LONGVARCHAR},
+      Ignored_server_ids = #{ignoredServerIds,jdbcType=LONGVARCHAR},
+      Uuid = #{uuid,jdbcType=LONGVARCHAR},
+      Ssl_crl = #{sslCrl,jdbcType=LONGVARCHAR},
+      Ssl_crlpath = #{sslCrlpath,jdbcType=LONGVARCHAR}
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    update slave_master_info
+    set Number_of_lines = #{numberOfLines,jdbcType=INTEGER},
+      Master_log_pos = #{masterLogPos,jdbcType=BIGINT},
+      Connect_retry = #{connectRetry,jdbcType=INTEGER},
+      Enabled_ssl = #{enabledSsl,jdbcType=BIT},
+      Ssl_verify_server_cert = #{sslVerifyServerCert,jdbcType=BIT},
+      Heartbeat = #{heartbeat,jdbcType=REAL},
+      Retry_count = #{retryCount,jdbcType=BIGINT},
+      Enabled_auto_position = #{enabledAutoPosition,jdbcType=BIT}
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    <id column="Host" jdbcType="CHAR" property="host" />
+    <id column="Port" jdbcType="INTEGER" property="port" />
+    <result column="Number_of_lines" jdbcType="INTEGER" property="numberOfLines" />
+    <result column="Master_log_pos" jdbcType="BIGINT" property="masterLogPos" />
+    <result column="Connect_retry" jdbcType="INTEGER" property="connectRetry" />
+    <result column="Enabled_ssl" jdbcType="BIT" property="enabledSsl" />
+    <result column="Ssl_verify_server_cert" jdbcType="BIT" property="sslVerifyServerCert" />
+    <result column="Heartbeat" jdbcType="REAL" property="heartbeat" />
+    <result column="Retry_count" jdbcType="BIGINT" property="retryCount" />
+    <result column="Enabled_auto_position" jdbcType="BIT" property="enabledAutoPosition" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    <result column="Master_log_name" jdbcType="LONGVARCHAR" property="masterLogName" />
+    <result column="User_name" jdbcType="LONGVARCHAR" property="userName" />
+    <result column="User_password" jdbcType="LONGVARCHAR" property="userPassword" />
+    <result column="Ssl_ca" jdbcType="LONGVARCHAR" property="sslCa" />
+    <result column="Ssl_capath" jdbcType="LONGVARCHAR" property="sslCapath" />
+    <result column="Ssl_cert" jdbcType="LONGVARCHAR" property="sslCert" />
+    <result column="Ssl_cipher" jdbcType="LONGVARCHAR" property="sslCipher" />
+    <result column="Ssl_key" jdbcType="LONGVARCHAR" property="sslKey" />
+    <result column="Bind" jdbcType="LONGVARCHAR" property="bind" />
+    <result column="Ignored_server_ids" jdbcType="LONGVARCHAR" property="ignoredServerIds" />
+    <result column="Uuid" jdbcType="LONGVARCHAR" property="uuid" />
+    <result column="Ssl_crl" jdbcType="LONGVARCHAR" property="sslCrl" />
+    <result column="Ssl_crlpath" jdbcType="LONGVARCHAR" property="sslCrlpath" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    Host, Port, Number_of_lines, Master_log_pos, Connect_retry, Enabled_ssl, Ssl_verify_server_cert, 
+    Heartbeat, Retry_count, Enabled_auto_position
+  </sql>
+  <sql id="Blob_Column_List">
+    Master_log_name, User_name, User_password, Ssl_ca, Ssl_capath, Ssl_cert, Ssl_cipher, 
+    Ssl_key, Bind, Ignored_server_ids, Uuid, Ssl_crl, Ssl_crlpath
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from slave_master_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from slave_master_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from slave_master_info
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from slave_master_info
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfoExample">
+    delete from slave_master_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    insert into slave_master_info (Host, Port, Number_of_lines, 
+      Master_log_pos, Connect_retry, Enabled_ssl, 
+      Ssl_verify_server_cert, Heartbeat, Retry_count, 
+      Enabled_auto_position, Master_log_name, User_name, 
+      User_password, Ssl_ca, Ssl_capath, 
+      Ssl_cert, Ssl_cipher, Ssl_key, 
+      Bind, Ignored_server_ids, Uuid, 
+      Ssl_crl, Ssl_crlpath)
+    values (#{host,jdbcType=CHAR}, #{port,jdbcType=INTEGER}, #{numberOfLines,jdbcType=INTEGER}, 
+      #{masterLogPos,jdbcType=BIGINT}, #{connectRetry,jdbcType=INTEGER}, #{enabledSsl,jdbcType=BIT}, 
+      #{sslVerifyServerCert,jdbcType=BIT}, #{heartbeat,jdbcType=REAL}, #{retryCount,jdbcType=BIGINT}, 
+      #{enabledAutoPosition,jdbcType=BIT}, #{masterLogName,jdbcType=LONGVARCHAR}, #{userName,jdbcType=LONGVARCHAR}, 
+      #{userPassword,jdbcType=LONGVARCHAR}, #{sslCa,jdbcType=LONGVARCHAR}, #{sslCapath,jdbcType=LONGVARCHAR}, 
+      #{sslCert,jdbcType=LONGVARCHAR}, #{sslCipher,jdbcType=LONGVARCHAR}, #{sslKey,jdbcType=LONGVARCHAR}, 
+      #{bind,jdbcType=LONGVARCHAR}, #{ignoredServerIds,jdbcType=LONGVARCHAR}, #{uuid,jdbcType=LONGVARCHAR}, 
+      #{sslCrl,jdbcType=LONGVARCHAR}, #{sslCrlpath,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    insert into slave_master_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="host != null">
+        Host,
+      </if>
+      <if test="port != null">
+        Port,
+      </if>
+      <if test="numberOfLines != null">
+        Number_of_lines,
+      </if>
+      <if test="masterLogPos != null">
+        Master_log_pos,
+      </if>
+      <if test="connectRetry != null">
+        Connect_retry,
+      </if>
+      <if test="enabledSsl != null">
+        Enabled_ssl,
+      </if>
+      <if test="sslVerifyServerCert != null">
+        Ssl_verify_server_cert,
+      </if>
+      <if test="heartbeat != null">
+        Heartbeat,
+      </if>
+      <if test="retryCount != null">
+        Retry_count,
+      </if>
+      <if test="enabledAutoPosition != null">
+        Enabled_auto_position,
+      </if>
+      <if test="masterLogName != null">
+        Master_log_name,
+      </if>
+      <if test="userName != null">
+        User_name,
+      </if>
+      <if test="userPassword != null">
+        User_password,
+      </if>
+      <if test="sslCa != null">
+        Ssl_ca,
+      </if>
+      <if test="sslCapath != null">
+        Ssl_capath,
+      </if>
+      <if test="sslCert != null">
+        Ssl_cert,
+      </if>
+      <if test="sslCipher != null">
+        Ssl_cipher,
+      </if>
+      <if test="sslKey != null">
+        Ssl_key,
+      </if>
+      <if test="bind != null">
+        Bind,
+      </if>
+      <if test="ignoredServerIds != null">
+        Ignored_server_ids,
+      </if>
+      <if test="uuid != null">
+        Uuid,
+      </if>
+      <if test="sslCrl != null">
+        Ssl_crl,
+      </if>
+      <if test="sslCrlpath != null">
+        Ssl_crlpath,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="host != null">
+        #{host,jdbcType=CHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=INTEGER},
+      </if>
+      <if test="numberOfLines != null">
+        #{numberOfLines,jdbcType=INTEGER},
+      </if>
+      <if test="masterLogPos != null">
+        #{masterLogPos,jdbcType=BIGINT},
+      </if>
+      <if test="connectRetry != null">
+        #{connectRetry,jdbcType=INTEGER},
+      </if>
+      <if test="enabledSsl != null">
+        #{enabledSsl,jdbcType=BIT},
+      </if>
+      <if test="sslVerifyServerCert != null">
+        #{sslVerifyServerCert,jdbcType=BIT},
+      </if>
+      <if test="heartbeat != null">
+        #{heartbeat,jdbcType=REAL},
+      </if>
+      <if test="retryCount != null">
+        #{retryCount,jdbcType=BIGINT},
+      </if>
+      <if test="enabledAutoPosition != null">
+        #{enabledAutoPosition,jdbcType=BIT},
+      </if>
+      <if test="masterLogName != null">
+        #{masterLogName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCa != null">
+        #{sslCa,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCapath != null">
+        #{sslCapath,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCert != null">
+        #{sslCert,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCipher != null">
+        #{sslCipher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslKey != null">
+        #{sslKey,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bind != null">
+        #{bind,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ignoredServerIds != null">
+        #{ignoredServerIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCrl != null">
+        #{sslCrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCrlpath != null">
+        #{sslCrlpath,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfoExample" resultType="java.lang.Integer">
+    select count(*) from slave_master_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update slave_master_info
+    <set>
+      <if test="record.host != null">
+        Host = #{record.host,jdbcType=CHAR},
+      </if>
+      <if test="record.port != null">
+        Port = #{record.port,jdbcType=INTEGER},
+      </if>
+      <if test="record.numberOfLines != null">
+        Number_of_lines = #{record.numberOfLines,jdbcType=INTEGER},
+      </if>
+      <if test="record.masterLogPos != null">
+        Master_log_pos = #{record.masterLogPos,jdbcType=BIGINT},
+      </if>
+      <if test="record.connectRetry != null">
+        Connect_retry = #{record.connectRetry,jdbcType=INTEGER},
+      </if>
+      <if test="record.enabledSsl != null">
+        Enabled_ssl = #{record.enabledSsl,jdbcType=BIT},
+      </if>
+      <if test="record.sslVerifyServerCert != null">
+        Ssl_verify_server_cert = #{record.sslVerifyServerCert,jdbcType=BIT},
+      </if>
+      <if test="record.heartbeat != null">
+        Heartbeat = #{record.heartbeat,jdbcType=REAL},
+      </if>
+      <if test="record.retryCount != null">
+        Retry_count = #{record.retryCount,jdbcType=BIGINT},
+      </if>
+      <if test="record.enabledAutoPosition != null">
+        Enabled_auto_position = #{record.enabledAutoPosition,jdbcType=BIT},
+      </if>
+      <if test="record.masterLogName != null">
+        Master_log_name = #{record.masterLogName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.userName != null">
+        User_name = #{record.userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.userPassword != null">
+        User_password = #{record.userPassword,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCa != null">
+        Ssl_ca = #{record.sslCa,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCapath != null">
+        Ssl_capath = #{record.sslCapath,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCert != null">
+        Ssl_cert = #{record.sslCert,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCipher != null">
+        Ssl_cipher = #{record.sslCipher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslKey != null">
+        Ssl_key = #{record.sslKey,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.bind != null">
+        Bind = #{record.bind,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.ignoredServerIds != null">
+        Ignored_server_ids = #{record.ignoredServerIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.uuid != null">
+        Uuid = #{record.uuid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCrl != null">
+        Ssl_crl = #{record.sslCrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sslCrlpath != null">
+        Ssl_crlpath = #{record.sslCrlpath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update slave_master_info
+    set Host = #{record.host,jdbcType=CHAR},
+      Port = #{record.port,jdbcType=INTEGER},
+      Number_of_lines = #{record.numberOfLines,jdbcType=INTEGER},
+      Master_log_pos = #{record.masterLogPos,jdbcType=BIGINT},
+      Connect_retry = #{record.connectRetry,jdbcType=INTEGER},
+      Enabled_ssl = #{record.enabledSsl,jdbcType=BIT},
+      Ssl_verify_server_cert = #{record.sslVerifyServerCert,jdbcType=BIT},
+      Heartbeat = #{record.heartbeat,jdbcType=REAL},
+      Retry_count = #{record.retryCount,jdbcType=BIGINT},
+      Enabled_auto_position = #{record.enabledAutoPosition,jdbcType=BIT},
+      Master_log_name = #{record.masterLogName,jdbcType=LONGVARCHAR},
+      User_name = #{record.userName,jdbcType=LONGVARCHAR},
+      User_password = #{record.userPassword,jdbcType=LONGVARCHAR},
+      Ssl_ca = #{record.sslCa,jdbcType=LONGVARCHAR},
+      Ssl_capath = #{record.sslCapath,jdbcType=LONGVARCHAR},
+      Ssl_cert = #{record.sslCert,jdbcType=LONGVARCHAR},
+      Ssl_cipher = #{record.sslCipher,jdbcType=LONGVARCHAR},
+      Ssl_key = #{record.sslKey,jdbcType=LONGVARCHAR},
+      Bind = #{record.bind,jdbcType=LONGVARCHAR},
+      Ignored_server_ids = #{record.ignoredServerIds,jdbcType=LONGVARCHAR},
+      Uuid = #{record.uuid,jdbcType=LONGVARCHAR},
+      Ssl_crl = #{record.sslCrl,jdbcType=LONGVARCHAR},
+      Ssl_crlpath = #{record.sslCrlpath,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update slave_master_info
+    set Host = #{record.host,jdbcType=CHAR},
+      Port = #{record.port,jdbcType=INTEGER},
+      Number_of_lines = #{record.numberOfLines,jdbcType=INTEGER},
+      Master_log_pos = #{record.masterLogPos,jdbcType=BIGINT},
+      Connect_retry = #{record.connectRetry,jdbcType=INTEGER},
+      Enabled_ssl = #{record.enabledSsl,jdbcType=BIT},
+      Ssl_verify_server_cert = #{record.sslVerifyServerCert,jdbcType=BIT},
+      Heartbeat = #{record.heartbeat,jdbcType=REAL},
+      Retry_count = #{record.retryCount,jdbcType=BIGINT},
+      Enabled_auto_position = #{record.enabledAutoPosition,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    update slave_master_info
+    <set>
+      <if test="numberOfLines != null">
+        Number_of_lines = #{numberOfLines,jdbcType=INTEGER},
+      </if>
+      <if test="masterLogPos != null">
+        Master_log_pos = #{masterLogPos,jdbcType=BIGINT},
+      </if>
+      <if test="connectRetry != null">
+        Connect_retry = #{connectRetry,jdbcType=INTEGER},
+      </if>
+      <if test="enabledSsl != null">
+        Enabled_ssl = #{enabledSsl,jdbcType=BIT},
+      </if>
+      <if test="sslVerifyServerCert != null">
+        Ssl_verify_server_cert = #{sslVerifyServerCert,jdbcType=BIT},
+      </if>
+      <if test="heartbeat != null">
+        Heartbeat = #{heartbeat,jdbcType=REAL},
+      </if>
+      <if test="retryCount != null">
+        Retry_count = #{retryCount,jdbcType=BIGINT},
+      </if>
+      <if test="enabledAutoPosition != null">
+        Enabled_auto_position = #{enabledAutoPosition,jdbcType=BIT},
+      </if>
+      <if test="masterLogName != null">
+        Master_log_name = #{masterLogName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userName != null">
+        User_name = #{userName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="userPassword != null">
+        User_password = #{userPassword,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCa != null">
+        Ssl_ca = #{sslCa,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCapath != null">
+        Ssl_capath = #{sslCapath,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCert != null">
+        Ssl_cert = #{sslCert,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCipher != null">
+        Ssl_cipher = #{sslCipher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslKey != null">
+        Ssl_key = #{sslKey,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bind != null">
+        Bind = #{bind,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ignoredServerIds != null">
+        Ignored_server_ids = #{ignoredServerIds,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="uuid != null">
+        Uuid = #{uuid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCrl != null">
+        Ssl_crl = #{sslCrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sslCrlpath != null">
+        Ssl_crlpath = #{sslCrlpath,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    update slave_master_info
+    set Number_of_lines = #{numberOfLines,jdbcType=INTEGER},
+      Master_log_pos = #{masterLogPos,jdbcType=BIGINT},
+      Connect_retry = #{connectRetry,jdbcType=INTEGER},
+      Enabled_ssl = #{enabledSsl,jdbcType=BIT},
+      Ssl_verify_server_cert = #{sslVerifyServerCert,jdbcType=BIT},
+      Heartbeat = #{heartbeat,jdbcType=REAL},
+      Retry_count = #{retryCount,jdbcType=BIGINT},
+      Enabled_auto_position = #{enabledAutoPosition,jdbcType=BIT},
+      Master_log_name = #{masterLogName,jdbcType=LONGVARCHAR},
+      User_name = #{userName,jdbcType=LONGVARCHAR},
+      User_password = #{userPassword,jdbcType=LONGVARCHAR},
+      Ssl_ca = #{sslCa,jdbcType=LONGVARCHAR},
+      Ssl_capath = #{sslCapath,jdbcType=LONGVARCHAR},
+      Ssl_cert = #{sslCert,jdbcType=LONGVARCHAR},
+      Ssl_cipher = #{sslCipher,jdbcType=LONGVARCHAR},
+      Ssl_key = #{sslKey,jdbcType=LONGVARCHAR},
+      Bind = #{bind,jdbcType=LONGVARCHAR},
+      Ignored_server_ids = #{ignoredServerIds,jdbcType=LONGVARCHAR},
+      Uuid = #{uuid,jdbcType=LONGVARCHAR},
+      Ssl_crl = #{sslCrl,jdbcType=LONGVARCHAR},
+      Ssl_crlpath = #{sslCrlpath,jdbcType=LONGVARCHAR}
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveMasterInfo">
+    update slave_master_info
+    set Number_of_lines = #{numberOfLines,jdbcType=INTEGER},
+      Master_log_pos = #{masterLogPos,jdbcType=BIGINT},
+      Connect_retry = #{connectRetry,jdbcType=INTEGER},
+      Enabled_ssl = #{enabledSsl,jdbcType=BIT},
+      Ssl_verify_server_cert = #{sslVerifyServerCert,jdbcType=BIT},
+      Heartbeat = #{heartbeat,jdbcType=REAL},
+      Retry_count = #{retryCount,jdbcType=BIGINT},
+      Enabled_auto_position = #{enabledAutoPosition,jdbcType=BIT}
+    where Host = #{host,jdbcType=CHAR}
+      and Port = #{port,jdbcType=INTEGER}
+  </update>
+</mapper>
