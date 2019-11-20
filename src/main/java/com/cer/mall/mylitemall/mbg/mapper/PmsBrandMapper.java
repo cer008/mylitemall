@@ -2,8 +2,9 @@ package com.cer.mall.mylitemall.mbg.mapper;
 
 import com.cer.mall.mylitemall.mbg.model.PmsBrand;
 import com.cer.mall.mylitemall.mbg.model.PmsBrandExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PmsBrandMapper {
     int countByExample(PmsBrandExample example);
