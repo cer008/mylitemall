@@ -62,7 +62,7 @@ public class NdbBinlogIndex implements Serializable {
     }
 
     public void setFile(String file) {
-        this.file = file;
+        this.file = file == null ? null : file.trim();
     }
 
     public Integer getInserts() {

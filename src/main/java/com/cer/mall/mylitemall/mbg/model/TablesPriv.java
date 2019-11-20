@@ -27,7 +27,7 @@ public class TablesPriv implements Serializable {
     }
 
     public void setHost(String host) {
-        this.host = host;
+        this.host = host == null ? null : host.trim();
     }
 
     public String getDb() {
@@ -35,7 +35,7 @@ public class TablesPriv implements Serializable {
     }
 
     public void setDb(String db) {
-        this.db = db;
+        this.db = db == null ? null : db.trim();
     }
 
     public String getUser() {
@@ -43,7 +43,7 @@ public class TablesPriv implements Serializable {
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.user = user == null ? null : user.trim();
     }
 
     public String getTableName() {
@@ -51,7 +51,7 @@ public class TablesPriv implements Serializable {
     }
 
     public void setTableName(String tableName) {
-        this.tableName = tableName;
+        this.tableName = tableName == null ? null : tableName.trim();
     }
 
     public String getGrantor() {
@@ -59,7 +59,7 @@ public class TablesPriv implements Serializable {
     }
 
     public void setGrantor(String grantor) {
-        this.grantor = grantor;
+        this.grantor = grantor == null ? null : grantor.trim();
     }
 
     public Date getTimestamp() {
@@ -75,7 +75,7 @@ public class TablesPriv implements Serializable {
     }
 
     public void setTablePriv(String tablePriv) {
-        this.tablePriv = tablePriv;
+        this.tablePriv = tablePriv == null ? null : tablePriv.trim();
     }
 
     public String getColumnPriv() {
@@ -83,7 +83,7 @@ public class TablesPriv implements Serializable {
     }
 
     public void setColumnPriv(String columnPriv) {
-        this.columnPriv = columnPriv;
+        this.columnPriv = columnPriv == null ? null : columnPriv.trim();
     }
 
     @Override

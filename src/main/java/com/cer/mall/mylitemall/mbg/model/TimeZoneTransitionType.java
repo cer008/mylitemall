@@ -52,7 +52,7 @@ public class TimeZoneTransitionType implements Serializable {
     }
 
     public void setAbbreviation(String abbreviation) {
-        this.abbreviation = abbreviation;
+        this.abbreviation = abbreviation == null ? null : abbreviation.trim();
     }
 
     @Override

@@ -93,7 +93,7 @@ public class PmsSkuStock implements Serializable {
     }
 
     public void setSkuCode(String skuCode) {
-        this.skuCode = skuCode;
+        this.skuCode = skuCode == null ? null : skuCode.trim();
     }
 
     public BigDecimal getPrice() {
@@ -125,7 +125,7 @@ public class PmsSkuStock implements Serializable {
     }
 
     public void setSp1(String sp1) {
-        this.sp1 = sp1;
+        this.sp1 = sp1 == null ? null : sp1.trim();
     }
 
     public String getSp2() {
@@ -133,7 +133,7 @@ public class PmsSkuStock implements Serializable {
     }
 
     public void setSp2(String sp2) {
-        this.sp2 = sp2;
+        this.sp2 = sp2 == null ? null : sp2.trim();
     }
 
     public String getSp3() {
@@ -141,7 +141,7 @@ public class PmsSkuStock implements Serializable {
     }
 
     public void setSp3(String sp3) {
-        this.sp3 = sp3;
+        this.sp3 = sp3 == null ? null : sp3.trim();
     }
 
     public String getPic() {
@@ -149,7 +149,7 @@ public class PmsSkuStock implements Serializable {
     }
 
     public void setPic(String pic) {
-        this.pic = pic;
+        this.pic = pic == null ? null : pic.trim();
     }
 
     public Integer getSale() {

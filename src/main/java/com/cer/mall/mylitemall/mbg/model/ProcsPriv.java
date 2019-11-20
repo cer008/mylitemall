@@ -27,7 +27,7 @@ public class ProcsPriv implements Serializable {
     }
 
     public void setHost(String host) {
-        this.host = host;
+        this.host = host == null ? null : host.trim();
     }
 
     public String getDb() {
@@ -35,7 +35,7 @@ public class ProcsPriv implements Serializable {
     }
 
     public void setDb(String db) {
-        this.db = db;
+        this.db = db == null ? null : db.trim();
     }
 
     public String getUser() {
@@ -43,7 +43,7 @@ public class ProcsPriv implements Serializable {
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.user = user == null ? null : user.trim();
     }
 
     public String getRoutineName() {
@@ -51,7 +51,7 @@ public class ProcsPriv implements Serializable {
     }
 
     public void setRoutineName(String routineName) {
-        this.routineName = routineName;
+        this.routineName = routineName == null ? null : routineName.trim();
     }
 
     public String getRoutineType() {
@@ -59,7 +59,7 @@ public class ProcsPriv implements Serializable {
     }
 
     public void setRoutineType(String routineType) {
-        this.routineType = routineType;
+        this.routineType = routineType == null ? null : routineType.trim();
     }
 
     public String getGrantor() {
@@ -67,7 +67,7 @@ public class ProcsPriv implements Serializable {
     }
 
     public void setGrantor(String grantor) {
-        this.grantor = grantor;
+        this.grantor = grantor == null ? null : grantor.trim();
     }
 
     public String getProcPriv() {
@@ -75,7 +75,7 @@ public class ProcsPriv implements Serializable {
     }
 
     public void setProcPriv(String procPriv) {
-        this.procPriv = procPriv;
+        this.procPriv = procPriv == null ? null : procPriv.trim();
     }
 
     public Date getTimestamp() {

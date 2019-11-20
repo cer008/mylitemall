@@ -51,7 +51,7 @@ public class Proc implements Serializable {
     }
 
     public void setDb(String db) {
-        this.db = db;
+        this.db = db == null ? null : db.trim();
     }
 
     public String getName() {
@@ -59,7 +59,7 @@ public class Proc implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public String getType() {
@@ -67,7 +67,7 @@ public class Proc implements Serializable {
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.type = type == null ? null : type.trim();
     }
 
     public String getSpecificName() {
@@ -75,7 +75,7 @@ public class Proc implements Serializable {
     }
 
     public void setSpecificName(String specificName) {
-        this.specificName = specificName;
+        this.specificName = specificName == null ? null : specificName.trim();
     }
 
     public String getLanguage() {
@@ -83,7 +83,7 @@ public class Proc implements Serializable {
     }
 
     public void setLanguage(String language) {
-        this.language = language;
+        this.language = language == null ? null : language.trim();
     }
 
     public String getSqlDataAccess() {
@@ -91,7 +91,7 @@ public class Proc implements Serializable {
     }
 
     public void setSqlDataAccess(String sqlDataAccess) {
-        this.sqlDataAccess = sqlDataAccess;
+        this.sqlDataAccess = sqlDataAccess == null ? null : sqlDataAccess.trim();
     }
 
     public String getIsDeterministic() {
@@ -99,7 +99,7 @@ public class Proc implements Serializable {
     }
 
     public void setIsDeterministic(String isDeterministic) {
-        this.isDeterministic = isDeterministic;
+        this.isDeterministic = isDeterministic == null ? null : isDeterministic.trim();
     }
 
     public String getSecurityType() {
@@ -107,7 +107,7 @@ public class Proc implements Serializable {
     }
 
     public void setSecurityType(String securityType) {
-        this.securityType = securityType;
+        this.securityType = securityType == null ? null : securityType.trim();
     }
 
     public String getDefiner() {
@@ -115,7 +115,7 @@ public class Proc implements Serializable {
     }
 
     public void setDefiner(String definer) {
-        this.definer = definer;
+        this.definer = definer == null ? null : definer.trim();
     }
 
     public Date getCreated() {
@@ -139,7 +139,7 @@ public class Proc implements Serializable {
     }
 
     public void setSqlMode(String sqlMode) {
-        this.sqlMode = sqlMode;
+        this.sqlMode = sqlMode == null ? null : sqlMode.trim();
     }
 
     public String getCharacterSetClient() {
@@ -147,7 +147,7 @@ public class Proc implements Serializable {
     }
 
     public void setCharacterSetClient(String characterSetClient) {
-        this.characterSetClient = characterSetClient;
+        this.characterSetClient = characterSetClient == null ? null : characterSetClient.trim();
     }
 
     public String getCollationConnection() {
@@ -155,7 +155,7 @@ public class Proc implements Serializable {
     }
 
     public void setCollationConnection(String collationConnection) {
-        this.collationConnection = collationConnection;
+        this.collationConnection = collationConnection == null ? null : collationConnection.trim();
     }
 
     public String getDbCollation() {
@@ -163,7 +163,7 @@ public class Proc implements Serializable {
     }
 
     public void setDbCollation(String dbCollation) {
-        this.dbCollation = dbCollation;
+        this.dbCollation = dbCollation == null ? null : dbCollation.trim();
     }
 
     public byte[] getParamList() {
@@ -195,7 +195,7 @@ public class Proc implements Serializable {
     }
 
     public void setComment(String comment) {
-        this.comment = comment;
+        this.comment = comment == null ? null : comment.trim();
     }
 
     public byte[] getBodyUtf8() {

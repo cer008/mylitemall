@@ -109,7 +109,7 @@ public class SlaveRelayLogInfo implements Serializable {
     }
 
     public void setRelayLogName(String relayLogName) {
-        this.relayLogName = relayLogName;
+        this.relayLogName = relayLogName == null ? null : relayLogName.trim();
     }
 
     public String getMasterLogName() {
@@ -117,7 +117,7 @@ public class SlaveRelayLogInfo implements Serializable {
     }
 
     public void setMasterLogName(String masterLogName) {
-        this.masterLogName = masterLogName;
+        this.masterLogName = masterLogName == null ? null : masterLogName.trim();
     }
 
     @Override

@@ -47,7 +47,7 @@ public class GeneralLog implements Serializable {
     }
 
     public void setCommandType(String commandType) {
-        this.commandType = commandType;
+        this.commandType = commandType == null ? null : commandType.trim();
     }
 
     public String getUserHost() {
@@ -55,7 +55,7 @@ public class GeneralLog implements Serializable {
     }
 
     public void setUserHost(String userHost) {
-        this.userHost = userHost;
+        this.userHost = userHost == null ? null : userHost.trim();
     }
 
     public String getArgument() {
@@ -63,7 +63,7 @@ public class GeneralLog implements Serializable {
     }
 
     public void setArgument(String argument) {
-        this.argument = argument;
+        this.argument = argument == null ? null : argument.trim();
     }
 
     @Override

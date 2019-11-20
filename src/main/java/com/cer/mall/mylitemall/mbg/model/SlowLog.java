@@ -75,7 +75,7 @@ public class SlowLog implements Serializable {
     }
 
     public void setDb(String db) {
-        this.db = db;
+        this.db = db == null ? null : db.trim();
     }
 
     public Integer getLastInsertId() {
@@ -115,7 +115,7 @@ public class SlowLog implements Serializable {
     }
 
     public void setUserHost(String userHost) {
-        this.userHost = userHost;
+        this.userHost = userHost == null ? null : userHost.trim();
     }
 
     public String getSqlText() {
@@ -123,7 +123,7 @@ public class SlowLog implements Serializable {
     }
 
     public void setSqlText(String sqlText) {
-        this.sqlText = sqlText;
+        this.sqlText = sqlText == null ? null : sqlText.trim();
     }
 
     @Override

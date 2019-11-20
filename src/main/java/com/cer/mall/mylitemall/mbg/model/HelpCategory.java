@@ -26,7 +26,7 @@ public class HelpCategory implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public Short getParentCategoryId() {
@@ -42,7 +42,7 @@ public class HelpCategory implements Serializable {
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        this.url = url == null ? null : url.trim();
     }
 
     @Override

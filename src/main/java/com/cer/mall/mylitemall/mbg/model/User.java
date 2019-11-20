@@ -96,7 +96,7 @@ public class User implements Serializable {
     }
 
     public void setHost(String host) {
-        this.host = host;
+        this.host = host == null ? null : host.trim();
     }
 
     public String getUser() {
@@ -104,7 +104,7 @@ public class User implements Serializable {
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.user = user == null ? null : user.trim();
     }
 
     public String getPassword() {
@@ -112,7 +112,7 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     public String getSelectPriv() {
@@ -120,7 +120,7 @@ public class User implements Serializable {
     }
 
     public void setSelectPriv(String selectPriv) {
-        this.selectPriv = selectPriv;
+        this.selectPriv = selectPriv == null ? null : selectPriv.trim();
     }
 
     public String getInsertPriv() {
@@ -128,7 +128,7 @@ public class User implements Serializable {
     }
 
     public void setInsertPriv(String insertPriv) {
-        this.insertPriv = insertPriv;
+        this.insertPriv = insertPriv == null ? null : insertPriv.trim();
     }
 
     public String getUpdatePriv() {
@@ -136,7 +136,7 @@ public class User implements Serializable {
     }
 
     public void setUpdatePriv(String updatePriv) {
-        this.updatePriv = updatePriv;
+        this.updatePriv = updatePriv == null ? null : updatePriv.trim();
     }
 
     public String getDeletePriv() {
@@ -144,7 +144,7 @@ public class User implements Serializable {
     }
 
     public void setDeletePriv(String deletePriv) {
-        this.deletePriv = deletePriv;
+        this.deletePriv = deletePriv == null ? null : deletePriv.trim();
     }
 
     public String getCreatePriv() {
@@ -152,7 +152,7 @@ public class User implements Serializable {
     }
 
     public void setCreatePriv(String createPriv) {
-        this.createPriv = createPriv;
+        this.createPriv = createPriv == null ? null : createPriv.trim();
     }
 
     public String getDropPriv() {
@@ -160,7 +160,7 @@ public class User implements Serializable {
     }
 
     public void setDropPriv(String dropPriv) {
-        this.dropPriv = dropPriv;
+        this.dropPriv = dropPriv == null ? null : dropPriv.trim();
     }
 
     public String getReloadPriv() {
@@ -168,7 +168,7 @@ public class User implements Serializable {
     }
 
     public void setReloadPriv(String reloadPriv) {
-        this.reloadPriv = reloadPriv;
+        this.reloadPriv = reloadPriv == null ? null : reloadPriv.trim();
     }
 
     public String getShutdownPriv() {
@@ -176,7 +176,7 @@ public class User implements Serializable {
     }
 
     public void setShutdownPriv(String shutdownPriv) {
-        this.shutdownPriv = shutdownPriv;
+        this.shutdownPriv = shutdownPriv == null ? null : shutdownPriv.trim();
     }
 
     public String getProcessPriv() {
@@ -184,7 +184,7 @@ public class User implements Serializable {
     }
 
     public void setProcessPriv(String processPriv) {
-        this.processPriv = processPriv;
+        this.processPriv = processPriv == null ? null : processPriv.trim();
     }
 
     public String getFilePriv() {
@@ -192,7 +192,7 @@ public class User implements Serializable {
     }
 
     public void setFilePriv(String filePriv) {
-        this.filePriv = filePriv;
+        this.filePriv = filePriv == null ? null : filePriv.trim();
     }
 
     public String getGrantPriv() {
@@ -200,7 +200,7 @@ public class User implements Serializable {
     }
 
     public void setGrantPriv(String grantPriv) {
-        this.grantPriv = grantPriv;
+        this.grantPriv = grantPriv == null ? null : grantPriv.trim();
     }
 
     public String getReferencesPriv() {
@@ -208,7 +208,7 @@ public class User implements Serializable {
     }
 
     public void setReferencesPriv(String referencesPriv) {
-        this.referencesPriv = referencesPriv;
+        this.referencesPriv = referencesPriv == null ? null : referencesPriv.trim();
     }
 
     public String getIndexPriv() {
@@ -216,7 +216,7 @@ public class User implements Serializable {
     }
 
     public void setIndexPriv(String indexPriv) {
-        this.indexPriv = indexPriv;
+        this.indexPriv = indexPriv == null ? null : indexPriv.trim();
     }
 
     public String getAlterPriv() {
@@ -224,7 +224,7 @@ public class User implements Serializable {
     }
 
     public void setAlterPriv(String alterPriv) {
-        this.alterPriv = alterPriv;
+        this.alterPriv = alterPriv == null ? null : alterPriv.trim();
     }
 
     public String getShowDbPriv() {
@@ -232,7 +232,7 @@ public class User implements Serializable {
     }
 
     public void setShowDbPriv(String showDbPriv) {
-        this.showDbPriv = showDbPriv;
+        this.showDbPriv = showDbPriv == null ? null : showDbPriv.trim();
     }
 
     public String getSuperPriv() {
@@ -240,7 +240,7 @@ public class User implements Serializable {
     }
 
     public void setSuperPriv(String superPriv) {
-        this.superPriv = superPriv;
+        this.superPriv = superPriv == null ? null : superPriv.trim();
     }
 
     public String getCreateTmpTablePriv() {
@@ -248,7 +248,7 @@ public class User implements Serializable {
     }
 
     public void setCreateTmpTablePriv(String createTmpTablePriv) {
-        this.createTmpTablePriv = createTmpTablePriv;
+        this.createTmpTablePriv = createTmpTablePriv == null ? null : createTmpTablePriv.trim();
     }
 
     public String getLockTablesPriv() {
@@ -256,7 +256,7 @@ public class User implements Serializable {
     }
 
     public void setLockTablesPriv(String lockTablesPriv) {
-        this.lockTablesPriv = lockTablesPriv;
+        this.lockTablesPriv = lockTablesPriv == null ? null : lockTablesPriv.trim();
     }
 
     public String getExecutePriv() {
@@ -264,7 +264,7 @@ public class User implements Serializable {
     }
 
     public void setExecutePriv(String executePriv) {
-        this.executePriv = executePriv;
+        this.executePriv = executePriv == null ? null : executePriv.trim();
     }
 
     public String getReplSlavePriv() {
@@ -272,7 +272,7 @@ public class User implements Serializable {
     }
 
     public void setReplSlavePriv(String replSlavePriv) {
-        this.replSlavePriv = replSlavePriv;
+        this.replSlavePriv = replSlavePriv == null ? null : replSlavePriv.trim();
     }
 
     public String getReplClientPriv() {
@@ -280,7 +280,7 @@ public class User implements Serializable {
     }
 
     public void setReplClientPriv(String replClientPriv) {
-        this.replClientPriv = replClientPriv;
+        this.replClientPriv = replClientPriv == null ? null : replClientPriv.trim();
     }
 
     public String getCreateViewPriv() {
@@ -288,7 +288,7 @@ public class User implements Serializable {
     }
 
     public void setCreateViewPriv(String createViewPriv) {
-        this.createViewPriv = createViewPriv;
+        this.createViewPriv = createViewPriv == null ? null : createViewPriv.trim();
     }
 
     public String getShowViewPriv() {
@@ -296,7 +296,7 @@ public class User implements Serializable {
     }
 
     public void setShowViewPriv(String showViewPriv) {
-        this.showViewPriv = showViewPriv;
+        this.showViewPriv = showViewPriv == null ? null : showViewPriv.trim();
     }
 
     public String getCreateRoutinePriv() {
@@ -304,7 +304,7 @@ public class User implements Serializable {
     }
 
     public void setCreateRoutinePriv(String createRoutinePriv) {
-        this.createRoutinePriv = createRoutinePriv;
+        this.createRoutinePriv = createRoutinePriv == null ? null : createRoutinePriv.trim();
     }
 
     public String getAlterRoutinePriv() {
@@ -312,7 +312,7 @@ public class User implements Serializable {
     }
 
     public void setAlterRoutinePriv(String alterRoutinePriv) {
-        this.alterRoutinePriv = alterRoutinePriv;
+        this.alterRoutinePriv = alterRoutinePriv == null ? null : alterRoutinePriv.trim();
     }
 
     public String getCreateUserPriv() {
@@ -320,7 +320,7 @@ public class User implements Serializable {
     }
 
     public void setCreateUserPriv(String createUserPriv) {
-        this.createUserPriv = createUserPriv;
+        this.createUserPriv = createUserPriv == null ? null : createUserPriv.trim();
     }
 
     public String getEventPriv() {
@@ -328,7 +328,7 @@ public class User implements Serializable {
     }
 
     public void setEventPriv(String eventPriv) {
-        this.eventPriv = eventPriv;
+        this.eventPriv = eventPriv == null ? null : eventPriv.trim();
     }
 
     public String getTriggerPriv() {
@@ -336,7 +336,7 @@ public class User implements Serializable {
     }
 
     public void setTriggerPriv(String triggerPriv) {
-        this.triggerPriv = triggerPriv;
+        this.triggerPriv = triggerPriv == null ? null : triggerPriv.trim();
     }
 
     public String getCreateTablespacePriv() {
@@ -344,7 +344,7 @@ public class User implements Serializable {
     }
 
     public void setCreateTablespacePriv(String createTablespacePriv) {
-        this.createTablespacePriv = createTablespacePriv;
+        this.createTablespacePriv = createTablespacePriv == null ? null : createTablespacePriv.trim();
     }
 
     public String getSslType() {
@@ -352,7 +352,7 @@ public class User implements Serializable {
     }
 
     public void setSslType(String sslType) {
-        this.sslType = sslType;
+        this.sslType = sslType == null ? null : sslType.trim();
     }
 
     public Integer getMaxQuestions() {
@@ -392,7 +392,7 @@ public class User implements Serializable {
     }
 
     public void setPlugin(String plugin) {
-        this.plugin = plugin;
+        this.plugin = plugin == null ? null : plugin.trim();
     }
 
     public String getPasswordExpired() {
@@ -400,7 +400,7 @@ public class User implements Serializable {
     }
 
     public void setPasswordExpired(String passwordExpired) {
-        this.passwordExpired = passwordExpired;
+        this.passwordExpired = passwordExpired == null ? null : passwordExpired.trim();
     }
 
     public byte[] getSslCipher() {
@@ -432,7 +432,7 @@ public class User implements Serializable {
     }
 
     public void setAuthenticationString(String authenticationString) {
-        this.authenticationString = authenticationString;
+        this.authenticationString = authenticationString == null ? null : authenticationString.trim();
     }
 
     @Override

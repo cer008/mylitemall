@@ -28,7 +28,7 @@ public class Servers implements Serializable {
     }
 
     public void setServerName(String serverName) {
-        this.serverName = serverName;
+        this.serverName = serverName == null ? null : serverName.trim();
     }
 
     public String getHost() {
@@ -36,7 +36,7 @@ public class Servers implements Serializable {
     }
 
     public void setHost(String host) {
-        this.host = host;
+        this.host = host == null ? null : host.trim();
     }
 
     public String getDb() {
@@ -44,7 +44,7 @@ public class Servers implements Serializable {
     }
 
     public void setDb(String db) {
-        this.db = db;
+        this.db = db == null ? null : db.trim();
     }
 
     public String getUsername() {
@@ -52,7 +52,7 @@ public class Servers implements Serializable {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -60,7 +60,7 @@ public class Servers implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     public Integer getPort() {
@@ -76,7 +76,7 @@ public class Servers implements Serializable {
     }
 
     public void setSocket(String socket) {
-        this.socket = socket;
+        this.socket = socket == null ? null : socket.trim();
     }
 
     public String getWrapper() {
@@ -84,7 +84,7 @@ public class Servers implements Serializable {
     }
 
     public void setWrapper(String wrapper) {
-        this.wrapper = wrapper;
+        this.wrapper = wrapper == null ? null : wrapper.trim();
     }
 
     public String getOwner() {
@@ -92,7 +92,7 @@ public class Servers implements Serializable {
     }
 
     public void setOwner(String owner) {
-        this.owner = owner;
+        this.owner = owner == null ? null : owner.trim();
     }
 
     @Override

@@ -30,7 +30,7 @@ public class HelpTopic implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public Short getHelpCategoryId() {
@@ -46,7 +46,7 @@ public class HelpTopic implements Serializable {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description == null ? null : description.trim();
     }
 
     public String getExample() {
@@ -54,7 +54,7 @@ public class HelpTopic implements Serializable {
     }
 
     public void setExample(String example) {
-        this.example = example;
+        this.example = example == null ? null : example.trim();
     }
 
     public String getUrl() {
@@ -62,7 +62,7 @@ public class HelpTopic implements Serializable {
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        this.url = url == null ? null : url.trim();
     }
 
     @Override

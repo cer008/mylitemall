@@ -54,7 +54,7 @@ public class Db implements Serializable {
     }
 
     public void setHost(String host) {
-        this.host = host;
+        this.host = host == null ? null : host.trim();
     }
 
     public String getDb() {
@@ -62,7 +62,7 @@ public class Db implements Serializable {
     }
 
     public void setDb(String db) {
-        this.db = db;
+        this.db = db == null ? null : db.trim();
     }
 
     public String getUser() {
@@ -70,7 +70,7 @@ public class Db implements Serializable {
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.user = user == null ? null : user.trim();
     }
 
     public String getSelectPriv() {
@@ -78,7 +78,7 @@ public class Db implements Serializable {
     }
 
     public void setSelectPriv(String selectPriv) {
-        this.selectPriv = selectPriv;
+        this.selectPriv = selectPriv == null ? null : selectPriv.trim();
     }
 
     public String getInsertPriv() {
@@ -86,7 +86,7 @@ public class Db implements Serializable {
     }
 
     public void setInsertPriv(String insertPriv) {
-        this.insertPriv = insertPriv;
+        this.insertPriv = insertPriv == null ? null : insertPriv.trim();
     }
 
     public String getUpdatePriv() {
@@ -94,7 +94,7 @@ public class Db implements Serializable {
     }
 
     public void setUpdatePriv(String updatePriv) {
-        this.updatePriv = updatePriv;
+        this.updatePriv = updatePriv == null ? null : updatePriv.trim();
     }
 
     public String getDeletePriv() {
@@ -102,7 +102,7 @@ public class Db implements Serializable {
     }
 
     public void setDeletePriv(String deletePriv) {
-        this.deletePriv = deletePriv;
+        this.deletePriv = deletePriv == null ? null : deletePriv.trim();
     }
 
     public String getCreatePriv() {
@@ -110,7 +110,7 @@ public class Db implements Serializable {
     }
 
     public void setCreatePriv(String createPriv) {
-        this.createPriv = createPriv;
+        this.createPriv = createPriv == null ? null : createPriv.trim();
     }
 
     public String getDropPriv() {
@@ -118,7 +118,7 @@ public class Db implements Serializable {
     }
 
     public void setDropPriv(String dropPriv) {
-        this.dropPriv = dropPriv;
+        this.dropPriv = dropPriv == null ? null : dropPriv.trim();
     }
 
     public String getGrantPriv() {
@@ -126,7 +126,7 @@ public class Db implements Serializable {
     }
 
     public void setGrantPriv(String grantPriv) {
-        this.grantPriv = grantPriv;
+        this.grantPriv = grantPriv == null ? null : grantPriv.trim();
     }
 
     public String getReferencesPriv() {
@@ -134,7 +134,7 @@ public class Db implements Serializable {
     }
 
     public void setReferencesPriv(String referencesPriv) {
-        this.referencesPriv = referencesPriv;
+        this.referencesPriv = referencesPriv == null ? null : referencesPriv.trim();
     }
 
     public String getIndexPriv() {
@@ -142,7 +142,7 @@ public class Db implements Serializable {
     }
 
     public void setIndexPriv(String indexPriv) {
-        this.indexPriv = indexPriv;
+        this.indexPriv = indexPriv == null ? null : indexPriv.trim();
     }
 
     public String getAlterPriv() {
@@ -150,7 +150,7 @@ public class Db implements Serializable {
     }
 
     public void setAlterPriv(String alterPriv) {
-        this.alterPriv = alterPriv;
+        this.alterPriv = alterPriv == null ? null : alterPriv.trim();
     }
 
     public String getCreateTmpTablePriv() {
@@ -158,7 +158,7 @@ public class Db implements Serializable {
     }
 
     public void setCreateTmpTablePriv(String createTmpTablePriv) {
-        this.createTmpTablePriv = createTmpTablePriv;
+        this.createTmpTablePriv = createTmpTablePriv == null ? null : createTmpTablePriv.trim();
     }
 
     public String getLockTablesPriv() {
@@ -166,7 +166,7 @@ public class Db implements Serializable {
     }
 
     public void setLockTablesPriv(String lockTablesPriv) {
-        this.lockTablesPriv = lockTablesPriv;
+        this.lockTablesPriv = lockTablesPriv == null ? null : lockTablesPriv.trim();
     }
 
     public String getCreateViewPriv() {
@@ -174,7 +174,7 @@ public class Db implements Serializable {
     }
 
     public void setCreateViewPriv(String createViewPriv) {
-        this.createViewPriv = createViewPriv;
+        this.createViewPriv = createViewPriv == null ? null : createViewPriv.trim();
     }
 
     public String getShowViewPriv() {
@@ -182,7 +182,7 @@ public class Db implements Serializable {
     }
 
     public void setShowViewPriv(String showViewPriv) {
-        this.showViewPriv = showViewPriv;
+        this.showViewPriv = showViewPriv == null ? null : showViewPriv.trim();
     }
 
     public String getCreateRoutinePriv() {
@@ -190,7 +190,7 @@ public class Db implements Serializable {
     }
 
     public void setCreateRoutinePriv(String createRoutinePriv) {
-        this.createRoutinePriv = createRoutinePriv;
+        this.createRoutinePriv = createRoutinePriv == null ? null : createRoutinePriv.trim();
     }
 
     public String getAlterRoutinePriv() {
@@ -198,7 +198,7 @@ public class Db implements Serializable {
     }
 
     public void setAlterRoutinePriv(String alterRoutinePriv) {
-        this.alterRoutinePriv = alterRoutinePriv;
+        this.alterRoutinePriv = alterRoutinePriv == null ? null : alterRoutinePriv.trim();
     }
 
     public String getExecutePriv() {
@@ -206,7 +206,7 @@ public class Db implements Serializable {
     }
 
     public void setExecutePriv(String executePriv) {
-        this.executePriv = executePriv;
+        this.executePriv = executePriv == null ? null : executePriv.trim();
     }
 
     public String getEventPriv() {
@@ -214,7 +214,7 @@ public class Db implements Serializable {
     }
 
     public void setEventPriv(String eventPriv) {
-        this.eventPriv = eventPriv;
+        this.eventPriv = eventPriv == null ? null : eventPriv.trim();
     }
 
     public String getTriggerPriv() {
@@ -222,7 +222,7 @@ public class Db implements Serializable {
     }
 
     public void setTriggerPriv(String triggerPriv) {
-        this.triggerPriv = triggerPriv;
+        this.triggerPriv = triggerPriv == null ? null : triggerPriv.trim();
     }
 
     @Override

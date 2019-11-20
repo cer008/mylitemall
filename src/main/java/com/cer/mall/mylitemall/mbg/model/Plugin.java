@@ -14,7 +14,7 @@ public class Plugin implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public String getDl() {
@@ -22,7 +22,7 @@ public class Plugin implements Serializable {
     }
 
     public void setDl(String dl) {
-        this.dl = dl;
+        this.dl = dl == null ? null : dl.trim();
     }
 
     @Override

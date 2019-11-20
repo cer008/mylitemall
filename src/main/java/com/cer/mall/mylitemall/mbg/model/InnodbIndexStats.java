@@ -27,7 +27,7 @@ public class InnodbIndexStats implements Serializable {
     }
 
     public void setDatabaseName(String databaseName) {
-        this.databaseName = databaseName;
+        this.databaseName = databaseName == null ? null : databaseName.trim();
     }
 
     public String getTableName() {
@@ -35,7 +35,7 @@ public class InnodbIndexStats implements Serializable {
     }
 
     public void setTableName(String tableName) {
-        this.tableName = tableName;
+        this.tableName = tableName == null ? null : tableName.trim();
     }
 
     public String getIndexName() {
@@ -43,7 +43,7 @@ public class InnodbIndexStats implements Serializable {
     }
 
     public void setIndexName(String indexName) {
-        this.indexName = indexName;
+        this.indexName = indexName == null ? null : indexName.trim();
     }
 
     public String getStatName() {
@@ -51,7 +51,7 @@ public class InnodbIndexStats implements Serializable {
     }
 
     public void setStatName(String statName) {
-        this.statName = statName;
+        this.statName = statName == null ? null : statName.trim();
     }
 
     public Date getLastUpdate() {
@@ -83,7 +83,7 @@ public class InnodbIndexStats implements Serializable {
     }
 
     public void setStatDescription(String statDescription) {
-        this.statDescription = statDescription;
+        this.statDescription = statDescription == null ? null : statDescription.trim();
     }
 
     @Override

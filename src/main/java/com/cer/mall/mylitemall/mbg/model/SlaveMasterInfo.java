@@ -166,7 +166,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setHost(String host) {
-        this.host = host;
+        this.host = host == null ? null : host.trim();
     }
 
     public Integer getPort() {
@@ -246,7 +246,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setMasterLogName(String masterLogName) {
-        this.masterLogName = masterLogName;
+        this.masterLogName = masterLogName == null ? null : masterLogName.trim();
     }
 
     public String getUserName() {
@@ -254,7 +254,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public String getUserPassword() {
@@ -262,7 +262,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+        this.userPassword = userPassword == null ? null : userPassword.trim();
     }
 
     public String getSslCa() {
@@ -270,7 +270,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setSslCa(String sslCa) {
-        this.sslCa = sslCa;
+        this.sslCa = sslCa == null ? null : sslCa.trim();
     }
 
     public String getSslCapath() {
@@ -278,7 +278,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setSslCapath(String sslCapath) {
-        this.sslCapath = sslCapath;
+        this.sslCapath = sslCapath == null ? null : sslCapath.trim();
     }
 
     public String getSslCert() {
@@ -286,7 +286,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setSslCert(String sslCert) {
-        this.sslCert = sslCert;
+        this.sslCert = sslCert == null ? null : sslCert.trim();
     }
 
     public String getSslCipher() {
@@ -294,7 +294,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setSslCipher(String sslCipher) {
-        this.sslCipher = sslCipher;
+        this.sslCipher = sslCipher == null ? null : sslCipher.trim();
     }
 
     public String getSslKey() {
@@ -302,7 +302,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setSslKey(String sslKey) {
-        this.sslKey = sslKey;
+        this.sslKey = sslKey == null ? null : sslKey.trim();
     }
 
     public String getBind() {
@@ -310,7 +310,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setBind(String bind) {
-        this.bind = bind;
+        this.bind = bind == null ? null : bind.trim();
     }
 
     public String getIgnoredServerIds() {
@@ -318,7 +318,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setIgnoredServerIds(String ignoredServerIds) {
-        this.ignoredServerIds = ignoredServerIds;
+        this.ignoredServerIds = ignoredServerIds == null ? null : ignoredServerIds.trim();
     }
 
     public String getUuid() {
@@ -326,7 +326,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setUuid(String uuid) {
-        this.uuid = uuid;
+        this.uuid = uuid == null ? null : uuid.trim();
     }
 
     public String getSslCrl() {
@@ -334,7 +334,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setSslCrl(String sslCrl) {
-        this.sslCrl = sslCrl;
+        this.sslCrl = sslCrl == null ? null : sslCrl.trim();
     }
 
     public String getSslCrlpath() {
@@ -342,7 +342,7 @@ public class SlaveMasterInfo implements Serializable {
     }
 
     public void setSslCrlpath(String sslCrlpath) {
-        this.sslCrlpath = sslCrlpath;
+        this.sslCrlpath = sslCrlpath == null ? null : sslCrlpath.trim();
     }
 
     @Override

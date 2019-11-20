@@ -55,7 +55,7 @@ public class Event implements Serializable {
     }
 
     public void setDb(String db) {
-        this.db = db;
+        this.db = db == null ? null : db.trim();
     }
 
     public String getName() {
@@ -63,7 +63,7 @@ public class Event implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public String getDefiner() {
@@ -71,7 +71,7 @@ public class Event implements Serializable {
     }
 
     public void setDefiner(String definer) {
-        this.definer = definer;
+        this.definer = definer == null ? null : definer.trim();
     }
 
     public Date getExecuteAt() {
@@ -95,7 +95,7 @@ public class Event implements Serializable {
     }
 
     public void setIntervalField(String intervalField) {
-        this.intervalField = intervalField;
+        this.intervalField = intervalField == null ? null : intervalField.trim();
     }
 
     public Date getCreated() {
@@ -143,7 +143,7 @@ public class Event implements Serializable {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.status = status == null ? null : status.trim();
     }
 
     public String getOnCompletion() {
@@ -151,7 +151,7 @@ public class Event implements Serializable {
     }
 
     public void setOnCompletion(String onCompletion) {
-        this.onCompletion = onCompletion;
+        this.onCompletion = onCompletion == null ? null : onCompletion.trim();
     }
 
     public String getSqlMode() {
@@ -159,7 +159,7 @@ public class Event implements Serializable {
     }
 
     public void setSqlMode(String sqlMode) {
-        this.sqlMode = sqlMode;
+        this.sqlMode = sqlMode == null ? null : sqlMode.trim();
     }
 
     public String getComment() {
@@ -167,7 +167,7 @@ public class Event implements Serializable {
     }
 
     public void setComment(String comment) {
-        this.comment = comment;
+        this.comment = comment == null ? null : comment.trim();
     }
 
     public Integer getOriginator() {
@@ -183,7 +183,7 @@ public class Event implements Serializable {
     }
 
     public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
+        this.timeZone = timeZone == null ? null : timeZone.trim();
     }
 
     public String getCharacterSetClient() {
@@ -191,7 +191,7 @@ public class Event implements Serializable {
     }
 
     public void setCharacterSetClient(String characterSetClient) {
-        this.characterSetClient = characterSetClient;
+        this.characterSetClient = characterSetClient == null ? null : characterSetClient.trim();
     }
 
     public String getCollationConnection() {
@@ -199,7 +199,7 @@ public class Event implements Serializable {
     }
 
     public void setCollationConnection(String collationConnection) {
-        this.collationConnection = collationConnection;
+        this.collationConnection = collationConnection == null ? null : collationConnection.trim();
     }
 
     public String getDbCollation() {
@@ -207,7 +207,7 @@ public class Event implements Serializable {
     }
 
     public void setDbCollation(String dbCollation) {
-        this.dbCollation = dbCollation;
+        this.dbCollation = dbCollation == null ? null : dbCollation.trim();
     }
 
     public byte[] getBody() {

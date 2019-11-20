@@ -23,7 +23,7 @@ public class InnodbTableStats implements Serializable {
     }
 
     public void setDatabaseName(String databaseName) {
-        this.databaseName = databaseName;
+        this.databaseName = databaseName == null ? null : databaseName.trim();
     }
 
     public String getTableName() {
@@ -31,7 +31,7 @@ public class InnodbTableStats implements Serializable {
     }
 
     public void setTableName(String tableName) {
-        this.tableName = tableName;
+        this.tableName = tableName == null ? null : tableName.trim();
     }
 
     public Date getLastUpdate() {

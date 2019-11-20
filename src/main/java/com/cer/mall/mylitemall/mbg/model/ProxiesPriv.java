@@ -25,7 +25,7 @@ public class ProxiesPriv implements Serializable {
     }
 
     public void setHost(String host) {
-        this.host = host;
+        this.host = host == null ? null : host.trim();
     }
 
     public String getUser() {
@@ -33,7 +33,7 @@ public class ProxiesPriv implements Serializable {
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.user = user == null ? null : user.trim();
     }
 
     public String getProxiedHost() {
@@ -41,7 +41,7 @@ public class ProxiesPriv implements Serializable {
     }
 
     public void setProxiedHost(String proxiedHost) {
-        this.proxiedHost = proxiedHost;
+        this.proxiedHost = proxiedHost == null ? null : proxiedHost.trim();
     }
 
     public String getProxiedUser() {
@@ -49,7 +49,7 @@ public class ProxiesPriv implements Serializable {
     }
 
     public void setProxiedUser(String proxiedUser) {
-        this.proxiedUser = proxiedUser;
+        this.proxiedUser = proxiedUser == null ? null : proxiedUser.trim();
     }
 
     public Boolean getWithGrant() {
@@ -65,7 +65,7 @@ public class ProxiesPriv implements Serializable {
     }
 
     public void setGrantor(String grantor) {
-        this.grantor = grantor;
+        this.grantor = grantor == null ? null : grantor.trim();
     }
 
     public Date getTimestamp() {

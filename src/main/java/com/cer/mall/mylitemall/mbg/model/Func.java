@@ -18,7 +18,7 @@ public class Func implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public Boolean getRet() {
@@ -34,7 +34,7 @@ public class Func implements Serializable {
     }
 
     public void setDl(String dl) {
-        this.dl = dl;
+        this.dl = dl == null ? null : dl.trim();
     }
 
     public String getType() {
@@ -42,7 +42,7 @@ public class Func implements Serializable {
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.type = type == null ? null : type.trim();
     }
 
     @Override

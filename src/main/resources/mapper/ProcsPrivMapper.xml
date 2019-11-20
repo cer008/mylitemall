@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cer.mall.mylitemall.mbg.mapper.ProcsPrivMapper">
+  <resultMap id="BaseResultMap" type="com.cer.mall.mylitemall.mbg.model.ProcsPriv">
+    <id column="Host" jdbcType="CHAR" property="host" />
+    <id column="Db" jdbcType="CHAR" property="db" />
+    <id column="User" jdbcType="CHAR" property="user" />
+    <id column="Routine_name" jdbcType="CHAR" property="routineName" />
+    <id column="Routine_type" jdbcType="CHAR" property="routineType" />
+    <result column="Grantor" jdbcType="CHAR" property="grantor" />
+    <result column="Proc_priv" jdbcType="CHAR" property="procPriv" />
+    <result column="Timestamp" jdbcType="TIMESTAMP" property="timestamp" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    Host, Db, User, Routine_name, Routine_type, Grantor, Proc_priv, Timestamp
+  </sql>
+  <select id="selectByExample" parameterType="com.cer.mall.mylitemall.mbg.model.ProcsPrivExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from procs_priv
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from procs_priv
+    where Host = #{host,jdbcType=CHAR}
+      and Db = #{db,jdbcType=CHAR}
+      and User = #{user,jdbcType=CHAR}
+      and Routine_name = #{routineName,jdbcType=CHAR}
+      and Routine_type = #{routineType,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from procs_priv
+    where Host = #{host,jdbcType=CHAR}
+      and Db = #{db,jdbcType=CHAR}
+      and User = #{user,jdbcType=CHAR}
+      and Routine_name = #{routineName,jdbcType=CHAR}
+      and Routine_type = #{routineType,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cer.mall.mylitemall.mbg.model.ProcsPrivExample">
+    delete from procs_priv
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cer.mall.mylitemall.mbg.model.ProcsPriv">
+    insert into procs_priv (Host, Db, User, Routine_name, 
+      Routine_type, Grantor, Proc_priv, 
+      Timestamp)
+    values (#{host,jdbcType=CHAR}, #{db,jdbcType=CHAR}, #{user,jdbcType=CHAR}, #{routineName,jdbcType=CHAR}, 
+      #{routineType,jdbcType=CHAR}, #{grantor,jdbcType=CHAR}, #{procPriv,jdbcType=CHAR}, 
+      #{timestamp,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cer.mall.mylitemall.mbg.model.ProcsPriv">
+    insert into procs_priv
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="host != null">
+        Host,
+      </if>
+      <if test="db != null">
+        Db,
+      </if>
+      <if test="user != null">
+        User,
+      </if>
+      <if test="routineName != null">
+        Routine_name,
+      </if>
+      <if test="routineType != null">
+        Routine_type,
+      </if>
+      <if test="grantor != null">
+        Grantor,
+      </if>
+      <if test="procPriv != null">
+        Proc_priv,
+      </if>
+      <if test="timestamp != null">
+        Timestamp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="host != null">
+        #{host,jdbcType=CHAR},
+      </if>
+      <if test="db != null">
+        #{db,jdbcType=CHAR},
+      </if>
+      <if test="user != null">
+        #{user,jdbcType=CHAR},
+      </if>
+      <if test="routineName != null">
+        #{routineName,jdbcType=CHAR},
+      </if>
+      <if test="routineType != null">
+        #{routineType,jdbcType=CHAR},
+      </if>
+      <if test="grantor != null">
+        #{grantor,jdbcType=CHAR},
+      </if>
+      <if test="procPriv != null">
+        #{procPriv,jdbcType=CHAR},
+      </if>
+      <if test="timestamp != null">
+        #{timestamp,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.ProcsPrivExample" resultType="java.lang.Integer">
+    select count(*) from procs_priv
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update procs_priv
+    <set>
+      <if test="record.host != null">
+        Host = #{record.host,jdbcType=CHAR},
+      </if>
+      <if test="record.db != null">
+        Db = #{record.db,jdbcType=CHAR},
+      </if>
+      <if test="record.user != null">
+        User = #{record.user,jdbcType=CHAR},
+      </if>
+      <if test="record.routineName != null">
+        Routine_name = #{record.routineName,jdbcType=CHAR},
+      </if>
+      <if test="record.routineType != null">
+        Routine_type = #{record.routineType,jdbcType=CHAR},
+      </if>
+      <if test="record.grantor != null">
+        Grantor = #{record.grantor,jdbcType=CHAR},
+      </if>
+      <if test="record.procPriv != null">
+        Proc_priv = #{record.procPriv,jdbcType=CHAR},
+      </if>
+      <if test="record.timestamp != null">
+        Timestamp = #{record.timestamp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update procs_priv
+    set Host = #{record.host,jdbcType=CHAR},
+      Db = #{record.db,jdbcType=CHAR},
+      User = #{record.user,jdbcType=CHAR},
+      Routine_name = #{record.routineName,jdbcType=CHAR},
+      Routine_type = #{record.routineType,jdbcType=CHAR},
+      Grantor = #{record.grantor,jdbcType=CHAR},
+      Proc_priv = #{record.procPriv,jdbcType=CHAR},
+      Timestamp = #{record.timestamp,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cer.mall.mylitemall.mbg.model.ProcsPriv">
+    update procs_priv
+    <set>
+      <if test="grantor != null">
+        Grantor = #{grantor,jdbcType=CHAR},
+      </if>
+      <if test="procPriv != null">
+        Proc_priv = #{procPriv,jdbcType=CHAR},
+      </if>
+      <if test="timestamp != null">
+        Timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Host = #{host,jdbcType=CHAR}
+      and Db = #{db,jdbcType=CHAR}
+      and User = #{user,jdbcType=CHAR}
+      and Routine_name = #{routineName,jdbcType=CHAR}
+      and Routine_type = #{routineType,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cer.mall.mylitemall.mbg.model.ProcsPriv">
+    update procs_priv
+    set Grantor = #{grantor,jdbcType=CHAR},
+      Proc_priv = #{procPriv,jdbcType=CHAR},
+      Timestamp = #{timestamp,jdbcType=TIMESTAMP}
+    where Host = #{host,jdbcType=CHAR}
+      and Db = #{db,jdbcType=CHAR}
+      and User = #{user,jdbcType=CHAR}
+      and Routine_name = #{routineName,jdbcType=CHAR}
+      and Routine_type = #{routineType,jdbcType=CHAR}
+  </update>
+</mapper>

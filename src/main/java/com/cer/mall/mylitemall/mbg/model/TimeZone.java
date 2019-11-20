@@ -22,7 +22,7 @@ public class TimeZone implements Serializable {
     }
 
     public void setUseLeapSeconds(String useLeapSeconds) {
-        this.useLeapSeconds = useLeapSeconds;
+        this.useLeapSeconds = useLeapSeconds == null ? null : useLeapSeconds.trim();
     }
 
     @Override

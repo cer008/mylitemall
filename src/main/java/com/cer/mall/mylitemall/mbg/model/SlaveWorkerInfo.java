@@ -90,7 +90,7 @@ public class SlaveWorkerInfo implements Serializable {
     }
 
     public void setRelayLogName(String relayLogName) {
-        this.relayLogName = relayLogName;
+        this.relayLogName = relayLogName == null ? null : relayLogName.trim();
     }
 
     public String getMasterLogName() {
@@ -98,7 +98,7 @@ public class SlaveWorkerInfo implements Serializable {
     }
 
     public void setMasterLogName(String masterLogName) {
-        this.masterLogName = masterLogName;
+        this.masterLogName = masterLogName == null ? null : masterLogName.trim();
     }
 
     public String getCheckpointRelayLogName() {
@@ -106,7 +106,7 @@ public class SlaveWorkerInfo implements Serializable {
     }
 
     public void setCheckpointRelayLogName(String checkpointRelayLogName) {
-        this.checkpointRelayLogName = checkpointRelayLogName;
+        this.checkpointRelayLogName = checkpointRelayLogName == null ? null : checkpointRelayLogName.trim();
     }
 
     public String getCheckpointMasterLogName() {
@@ -114,7 +114,7 @@ public class SlaveWorkerInfo implements Serializable {
     }
 
     public void setCheckpointMasterLogName(String checkpointMasterLogName) {
-        this.checkpointMasterLogName = checkpointMasterLogName;
+        this.checkpointMasterLogName = checkpointMasterLogName == null ? null : checkpointMasterLogName.trim();
     }
 
     public byte[] getCheckpointGroupBitmap() {
