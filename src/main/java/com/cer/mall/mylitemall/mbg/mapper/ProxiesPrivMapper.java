@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ProxiesPrivMapper {
-    int countByExample(ProxiesPrivExample example);
+    long countByExample(ProxiesPrivExample example);
 
     int deleteByExample(ProxiesPrivExample example);
 

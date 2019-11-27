@@ -19,7 +19,10 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Swagger2API文档的配置
+ * Swagger2配置类
+ * 在与spring boot集成时，放在与Application.java同级的目录下。
+ * 通过@Configuration注解，让Spring来加载该类配置。
+ * 再通过@EnableSwagger2注解来启用Swagger2。
  */
 @Configuration
 @EnableSwagger2
@@ -30,7 +33,7 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .select()
                 //为当前包下controller生成API文档
-                .apis(RequestHandlerSelectors.basePackage("com.macro.mall.tiny.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.cer.mall.mylitemall.controller"))
                 //为有@Api注解的Controller生成API文档
 //                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 //为有@ApiOperation注解的方法生成API文档
@@ -39,11 +42,16 @@ public class Swagger2Config {
                 .build();
     }
 
+    /**
+     * 创建该API的基本信息（这些基本信息会展现在文档页面中）
+     * 访问地址：http://项目实际地址/swagger-ui.html
+     * @return
+     */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("SwaggerUI演示")
-                .description("mall-tiny")
-                .contact("macro")
+                .description("mylitemall")
+                //.contact("xj")
                 .version("1.0")
                 .build();
     }

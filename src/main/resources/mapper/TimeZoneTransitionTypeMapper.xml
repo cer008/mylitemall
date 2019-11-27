@@ -144,7 +144,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.TimeZoneTransitionTypeExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.TimeZoneTransitionTypeExample" resultType="java.lang.Long">
     select count(*) from time_zone_transition_type
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

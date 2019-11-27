@@ -78,6 +78,7 @@ public class PmsBrandController {
         }
     }
 
+    @ApiOperation("分页获取所有品牌列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -86,9 +87,9 @@ public class PmsBrandController {
         return CommonResult.success(CommonPage.restPage(brandList));
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
+    public CommonResult<PmsBrand> brand(@RequestParam("id") Long id) {
         return CommonResult.success(pmsBrandService.getBrand(id));
     }
 }

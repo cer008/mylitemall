@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface HelpKeywordMapper {
-    int countByExample(HelpKeywordExample example);
+    long countByExample(HelpKeywordExample example);
 
     int deleteByExample(HelpKeywordExample example);
 

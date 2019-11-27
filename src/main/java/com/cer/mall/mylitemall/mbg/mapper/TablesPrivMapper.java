@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TablesPrivMapper {
-    int countByExample(TablesPrivExample example);
+    long countByExample(TablesPrivExample example);
 
     int deleteByExample(TablesPrivExample example);
 

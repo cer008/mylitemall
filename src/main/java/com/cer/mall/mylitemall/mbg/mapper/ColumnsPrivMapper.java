@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ColumnsPrivMapper {
-    int countByExample(ColumnsPrivExample example);
+    long countByExample(ColumnsPrivExample example);
 
     int deleteByExample(ColumnsPrivExample example);
 

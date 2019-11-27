@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface EventMapper {
-    int countByExample(EventExample example);
+    long countByExample(EventExample example);
 
     int deleteByExample(EventExample example);
 

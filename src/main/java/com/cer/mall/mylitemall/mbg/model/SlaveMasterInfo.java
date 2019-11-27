@@ -1,162 +1,75 @@
 package com.cer.mall.mylitemall.mbg.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class SlaveMasterInfo implements Serializable {
-    /**
-     * The host name of the master.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The host name of the master.")
     private String host;
 
-    /**
-     * The network port used to connect to the master.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The network port used to connect to the master.")
     private Integer port;
 
-    /**
-     * Number of lines in the file.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "Number of lines in the file.")
     private Integer numberOfLines;
 
-    /**
-     * The master log position of the last read event.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The master log position of the last read event.")
     private Long masterLogPos;
 
-    /**
-     * The period (in seconds) that the slave will wait before trying to reconnect to the master.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The period (in seconds) that the slave will wait before trying to reconnect to the master.")
     private Integer connectRetry;
 
-    /**
-     * Indicates whether the server supports SSL connections.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "Indicates whether the server supports SSL connections.")
     private Boolean enabledSsl;
 
-    /**
-     * Whether to verify the server certificate.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "Whether to verify the server certificate.")
     private Boolean sslVerifyServerCert;
 
     private Float heartbeat;
 
-    /**
-     * Number of reconnect attempts, to the master, before giving up.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "Number of reconnect attempts, to the master, before giving up.")
     private Long retryCount;
 
-    /**
-     * Indicates whether GTIDs will be used to retrieve events from the master.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "Indicates whether GTIDs will be used to retrieve events from the master.")
     private Boolean enabledAutoPosition;
 
-    /**
-     * The name of the master binary log currently being read from the master.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The name of the master binary log currently being read from the master.")
     private String masterLogName;
 
-    /**
-     * The user name used to connect to the master.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The user name used to connect to the master.")
     private String userName;
 
-    /**
-     * The password used to connect to the master.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The password used to connect to the master.")
     private String userPassword;
 
-    /**
-     * The file used for the Certificate Authority (CA) certificate.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The file used for the Certificate Authority (CA) certificate.")
     private String sslCa;
 
-    /**
-     * The path to the Certificate Authority (CA) certificates.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The path to the Certificate Authority (CA) certificates.")
     private String sslCapath;
 
-    /**
-     * The name of the SSL certificate file.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The name of the SSL certificate file.")
     private String sslCert;
 
-    /**
-     * The name of the cipher in use for the SSL connection.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The name of the cipher in use for the SSL connection.")
     private String sslCipher;
 
-    /**
-     * The name of the SSL key file.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The name of the SSL key file.")
     private String sslKey;
 
-    /**
-     * Displays which interface is employed when connecting to the MySQL server
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "Displays which interface is employed when connecting to the MySQL server")
     private String bind;
 
-    /**
-     * The number of server IDs to be ignored, followed by the actual server IDs
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The number of server IDs to be ignored, followed by the actual server IDs")
     private String ignoredServerIds;
 
-    /**
-     * The master server uuid.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The master server uuid.")
     private String uuid;
 
-    /**
-     * The file used for the Certificate Revocation List (CRL)
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The file used for the Certificate Revocation List (CRL)")
     private String sslCrl;
 
-    /**
-     * The path used for Certificate Revocation List (CRL) files
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The path used for Certificate Revocation List (CRL) files")
     private String sslCrlpath;
 
     private static final long serialVersionUID = 1L;

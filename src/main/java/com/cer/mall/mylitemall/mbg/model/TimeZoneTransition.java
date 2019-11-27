@@ -1,5 +1,6 @@
 package com.cer.mall.mylitemall.mbg.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class TimeZoneTransition implements Serializable {

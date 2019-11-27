@@ -10,9 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 用于生产MBG的代码
- * Created by macro on 2018/4/26.
- */
+* @Description:  用于生产MBG的代码
+* @Param:  
+* @return:  
+* @Author: xu jin
+* @Date: 2019/11/26 16:04
+*/ 
 public class Generator {
     public static void main(String[] args) throws Exception {
         //MBG 执行过程中的警告信息

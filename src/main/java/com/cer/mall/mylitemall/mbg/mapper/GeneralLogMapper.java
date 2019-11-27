@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface GeneralLogMapper {
-    int countByExample(GeneralLogExample example);
+    long countByExample(GeneralLogExample example);
 
     int deleteByExample(GeneralLogExample example);
 

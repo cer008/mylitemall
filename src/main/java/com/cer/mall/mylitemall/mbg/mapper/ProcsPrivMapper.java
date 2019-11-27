@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ProcsPrivMapper {
-    int countByExample(ProcsPrivExample example);
+    long countByExample(ProcsPrivExample example);
 
     int deleteByExample(ProcsPrivExample example);
 

@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface HelpRelationMapper {
-    int countByExample(HelpRelationExample example);
+    long countByExample(HelpRelationExample example);
 
     int deleteByExample(HelpRelationExample example);
 

@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TimeZoneLeapSecondMapper {
-    int countByExample(TimeZoneLeapSecondExample example);
+    long countByExample(TimeZoneLeapSecondExample example);
 
     int deleteByExample(TimeZoneLeapSecondExample example);
 

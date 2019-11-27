@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface PluginMapper {
-    int countByExample(PluginExample example);
+    long countByExample(PluginExample example);
 
     int deleteByExample(PluginExample example);
 

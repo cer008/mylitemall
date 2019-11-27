@@ -188,7 +188,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveRelayLogInfoExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.SlaveRelayLogInfoExample" resultType="java.lang.Long">
     select count(*) from slave_relay_log_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

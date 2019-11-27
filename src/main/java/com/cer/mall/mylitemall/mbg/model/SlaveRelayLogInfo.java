@@ -1,57 +1,30 @@
 package com.cer.mall.mylitemall.mbg.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class SlaveRelayLogInfo implements Serializable {
-    /**
-     * Internal Id that uniquely identifies this record.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "Internal Id that uniquely identifies this record.")
     private Integer id;
 
-    /**
-     * Number of lines in the file or rows in the table. Used to version table definitions.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "Number of lines in the file or rows in the table. Used to version table definitions.")
     private Integer numberOfLines;
 
-    /**
-     * The relay log position of the last executed event.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The relay log position of the last executed event.")
     private Long relayLogPos;
 
-    /**
-     * The master log position of the last executed event.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The master log position of the last executed event.")
     private Long masterLogPos;
 
-    /**
-     * The number of seconds that the slave must lag behind the master.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The number of seconds that the slave must lag behind the master.")
     private Integer sqlDelay;
 
     private Integer numberOfWorkers;
 
-    /**
-     * The name of the current relay log file.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The name of the current relay log file.")
     private String relayLogName;
 
-    /**
-     * The name of the master binary log file from which the events in the relay log file were read.
-     *
-     * @mbggenerated
-     */
+    @ApiModelProperty(value = "The name of the master binary log file from which the events in the relay log file were read.")
     private String masterLogName;
 
     private static final long serialVersionUID = 1L;

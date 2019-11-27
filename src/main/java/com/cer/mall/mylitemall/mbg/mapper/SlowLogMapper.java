@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface SlowLogMapper {
-    int countByExample(SlowLogExample example);
+    long countByExample(SlowLogExample example);
 
     int deleteByExample(SlowLogExample example);
 

@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface NdbBinlogIndexMapper {
-    int countByExample(NdbBinlogIndexExample example);
+    long countByExample(NdbBinlogIndexExample example);
 
     int deleteByExample(NdbBinlogIndexExample example);
 

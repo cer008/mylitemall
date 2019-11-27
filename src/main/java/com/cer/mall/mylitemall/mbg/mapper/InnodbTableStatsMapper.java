@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface InnodbTableStatsMapper {
-    int countByExample(InnodbTableStatsExample example);
+    long countByExample(InnodbTableStatsExample example);
 
     int deleteByExample(InnodbTableStatsExample example);
 

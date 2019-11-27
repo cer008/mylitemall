@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface FuncMapper {
-    int countByExample(FuncExample example);
+    long countByExample(FuncExample example);
 
     int deleteByExample(FuncExample example);
 

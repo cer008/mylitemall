@@ -171,7 +171,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.TablesPrivExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.cer.mall.mylitemall.mbg.model.TablesPrivExample" resultType="java.lang.Long">
     select count(*) from tables_priv
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ServersMapper {
-    int countByExample(ServersExample example);
+    long countByExample(ServersExample example);
 
     int deleteByExample(ServersExample example);
 

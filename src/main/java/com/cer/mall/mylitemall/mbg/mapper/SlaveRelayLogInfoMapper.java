@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface SlaveRelayLogInfoMapper {
-    int countByExample(SlaveRelayLogInfoExample example);
+    long countByExample(SlaveRelayLogInfoExample example);
 
     int deleteByExample(SlaveRelayLogInfoExample example);
 

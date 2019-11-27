@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface SlaveMasterInfoMapper {
-    int countByExample(SlaveMasterInfoExample example);
+    long countByExample(SlaveMasterInfoExample example);
 
     int deleteByExample(SlaveMasterInfoExample example);
 
