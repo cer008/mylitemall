@@ -4,12 +4,13 @@ import com.cer.mall.mylitemall.common.CommonResult;
 import com.cer.mall.mylitemall.service.UmsMemberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 /**
  * @ClassName: UmsMemberController
@@ -23,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Api(tags = "UmsMemberController", description = "会员登录注册管理")
 @RequestMapping("/sso")
 public class UmsMemberController {
-    @Autowired
+    @Resource(name="UmsMemberServiceImpl")
     private UmsMemberService memberService;
 
     @ApiOperation("获取验证码")
