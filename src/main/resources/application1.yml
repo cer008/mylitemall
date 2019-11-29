@@ -1,5 +1,0 @@
-# 自定义redis key
-info:
-  user:
-    name: zhangsan
-    age: 14

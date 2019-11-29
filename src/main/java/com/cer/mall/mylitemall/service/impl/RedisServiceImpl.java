@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class RedisServiceImpl implements RedisService {
 
     @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+    private StringRedisTemplate stringRedisTemplate;//更多的是操作字符串对象
 
     @Override
     public void set(String key, String value) {

@@ -2,7 +2,7 @@ package com.cer.mall.mylitemall.service.impl;
 
 import com.alibaba.druid.util.StringUtils;
 import com.cer.mall.mylitemall.common.CommonResult;
-import com.cer.mall.mylitemall.config.YmlConfig;
+import com.cer.mall.mylitemall.config.PrefixConfig;
 import com.cer.mall.mylitemall.service.RedisService;
 import com.cer.mall.mylitemall.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     @Autowired
     private RedisService redisService;
     @Autowired
-    private YmlConfig ymlConfig;
+    private PrefixConfig prefixConfig;
     @Value("${redis.key.prefix.authCode}")
     private String REDIS_KEY_PREFIX_AUTH_CODE;
     @Value("${redis.key.expire.authCode}")
@@ -37,7 +37,6 @@ public class UmsMemberServiceImpl implements UmsMemberService {
             sb.append(random.nextInt(10));
         }
         //验证码绑定手机号并存储到redis
-        String user = ymlConfig.getName();
         //Object val = ymlConfig.getRedis("key");
         redisService.set(REDIS_KEY_PREFIX_AUTH_CODE + telephone, sb.toString());
         redisService.expire(REDIS_KEY_PREFIX_AUTH_CODE + telephone, AUTH_CODE_EXPIRE_SECONDS);
