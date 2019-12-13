@@ -18,9 +18,9 @@ prefix:
 your:
   username: test
 ---
-list2:
-  name: qwer
-  url: http://blog.csdn.net/luckyrocks
+weChat:
+  appid: wx8107a41cd673ced0
+  secret: 15bfbab49733741ebb286b84bc21004d
 
 spring:
   datasource:
