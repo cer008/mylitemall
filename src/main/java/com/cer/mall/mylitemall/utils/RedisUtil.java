@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedisUtil {
 
-    @Value("${redis.key.expire.authCode}")
+    @Value("${token.expirationMilliSeconds}")
     private long expirationMilliSeconds;
 
     //@Autowired
@@ -101,7 +101,7 @@ public class RedisUtil {
      */
     public void hset(String key, HashMap<String,Object> hm){
         redisTemplate.opsForHash().putAll(key,hm);
-        setKeyExpire(key,expirationMilliSeconds);
+        //setKeyExpire(key,expirationMilliSeconds);小程序暂时先不用设置超时时间
     }
 
     /**

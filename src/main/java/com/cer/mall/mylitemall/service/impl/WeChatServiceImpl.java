@@ -3,7 +3,6 @@ package com.cer.mall.mylitemall.service.impl;
 import cn.hutool.core.lang.Assert;
 import com.alibaba.fastjson.JSONObject;
 import com.cer.mall.mylitemall.common.CommonResult;
-import com.cer.mall.mylitemall.common.ResultCode;
 import com.cer.mall.mylitemall.mbg.model.User;
 import com.cer.mall.mylitemall.service.WeChatService;
 import com.cer.mall.mylitemall.utils.Jcode2SessionUtil;
@@ -39,6 +38,9 @@ public class WeChatServiceImpl implements WeChatService {
     @Autowired
     private RedisUtil redisUtil;
 
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(WeChatServiceImpl.class);
 
     @Override
@@ -47,12 +49,12 @@ public class WeChatServiceImpl implements WeChatService {
 
         Assert.notNull(sessionInfo,"code 无效");
 
-        Assert.isTrue(0 == sessionInfo.getInteger("errcode"),sessionInfo.getString("errmsg"));
+        //Assert.isTrue(0 == sessionInfo.getInteger("errcode"),sessionInfo.getString("errmsg"));
 
         // 获取用户唯一标识符 openid成功
         // 模拟从数据库获取用户信息
         User user = new User();
-        user.setId(1L);
+        user.setUsername("haha");
         Set authoritiesSet = new HashSet();
         // 模拟从数据库中获取用户权限
         authoritiesSet.add(new SimpleGrantedAuthority("test:add"));
@@ -60,12 +62,12 @@ public class WeChatServiceImpl implements WeChatService {
         authoritiesSet.add(new SimpleGrantedAuthority("ddd:list"));
         user.setAuthorities(authoritiesSet);
         HashMap<String,Object> hashMap = new HashMap<>();
-        hashMap.put("id",user.getId().toString());
+        hashMap.put("userName",user.getUsername());
         hashMap.put("authorities",authoritiesSet);
-        String token = JwtTokenUtil.generateToken(user);
+        String token = jwtTokenUtil.generateToken(user);
         redisUtil.hset(token,hashMap);
 
-        return CommonResult.success(ResultCode.SUCCESS,token);
+        return CommonResult.success(token,"登陆成功!");
     }
 
     /**

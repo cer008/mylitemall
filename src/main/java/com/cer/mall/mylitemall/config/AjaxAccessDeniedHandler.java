@@ -1,8 +1,7 @@
 package com.cer.mall.mylitemall.config;
 
-import com.alibaba.fastjson.JSON;
+import cn.hutool.json.JSONUtil;
 import com.cer.mall.mylitemall.common.CommonResult;
-import com.cer.mall.mylitemall.common.ResultCode;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
@@ -23,7 +22,9 @@ import java.io.IOException;
 public class AjaxAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException e) throws IOException, ServletException {
-        response.setCharacterEncoding("utf-8");
-        response.getWriter().write(JSON.toJSONString(CommonResult.failed(ResultCode.FORBIDDEN)));
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        response.getWriter().println(JSONUtil.parse(CommonResult.forbidden(e.getMessage())));
+        response.getWriter().flush();
     }
 }
