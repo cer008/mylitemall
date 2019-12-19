@@ -72,9 +72,16 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
         //获取缓存中的信息
         HashMap<String,Object> hashMap = (HashMap<String, Object>) redisUtil.hget(authToken);
+        String redisUserName = hashMap.get("userName").toString();
         //从tokenInfo中取出用户信息
+        String jwtUserName = jwtTokenUtil.getUserNameFromToken(authToken);
+        if(!redisUserName.equals(jwtUserName)){
+            //用户名不匹配 返回错误信息
+            response.getWriter().write(JSON.toJSONString(CommonResult.success(ResultCode.LOGIN_FAILED)));
+            return;
+        }
         User user = new User();
-        user.setUsername(hashMap.get("userName").toString()).setAuthorities((Set<? extends GrantedAuthority>) hashMap.get("authorities"));
+        user.setUsername(redisUserName).setAuthorities((Set<? extends GrantedAuthority>) hashMap.get("authorities"));
 
         //更新token过期时间
         //redisUtil.setKeyExpire(authToken,expirationMilliSeconds);

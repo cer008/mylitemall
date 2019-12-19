@@ -41,6 +41,7 @@ public class TestController {
     @ApiOperation("测试")
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     @ResponseBody
+    //@PreAuthorize("hasAuthority('dddd:list')")
     public CommonResult test(@RequestParam Map<String, String> map){
         return CommonResult.success(map);
     }
