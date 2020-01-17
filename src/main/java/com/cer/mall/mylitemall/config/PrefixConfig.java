@@ -25,60 +25,60 @@ import java.util.Map;
 //@PropertySource(value = {"classpath:applicationn.yml"})//此注解不适用yml文件,测试后发现可以用
 @ConfigurationProperties(prefix = "prefix")
 public class PrefixConfig {
-    //@Value("${prefix.name}")
-    private String name;
-
-    //@Value("${prefix.list}")
-    private List<Map<String,String>> list = new ArrayList<>();
-
-    @Value("${your.username}")
-    private String username;
-
-    @Value("${list2.name}")
-    private String list2name;
-
-    //@Value("${list2}")
-    //${list2}直接取值取不到,用list2.url的方式才可以取到
-    private Map<String,String> prefix = new HashMap<>();
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Map<String, String>> getList() {
-        return list;
-    }
-
-    public void setList(List<Map<String, String>> list) {
-        this.list = list;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getList2name() {
-        return list2name;
-    }
-
-    public void setList2name(String list2name) {
-        this.list2name = list2name;
-    }
-
-    public Map<String, String> getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(Map<String, String> prefix) {
-        this.prefix = prefix;
-    }
+//    //@Value("${prefix.name}")
+//    private String name;
+//
+//    //@Value("${prefix.list}")
+//    private List<Map<String,String>> list = new ArrayList<>();
+//
+//    @Value("${your.username}")
+//    private String username;
+//
+//    @Value("${list2.name}")
+//    private String list2name;
+//
+//    //@Value("${list2}")
+//    //${list2}直接取值取不到,用list2.url的方式才可以取到
+//    private Map<String,String> prefix = new HashMap<>();
+//
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public List<Map<String, String>> getList() {
+//        return list;
+//    }
+//
+//    public void setList(List<Map<String, String>> list) {
+//        this.list = list;
+//    }
+//
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
+//    public String getList2name() {
+//        return list2name;
+//    }
+//
+//    public void setList2name(String list2name) {
+//        this.list2name = list2name;
+//    }
+//
+//    public Map<String, String> getPrefix() {
+//        return prefix;
+//    }
+//
+//    public void setPrefix(Map<String, String> prefix) {
+//        this.prefix = prefix;
+//    }
 }

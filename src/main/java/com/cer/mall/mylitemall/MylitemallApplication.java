@@ -9,7 +9,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @MapperScan("com.cer.mall.mylitemall.mbg.mapper")//扫描指定包下的mapper文件
 @EnableConfigurationProperties//使@ConfigurationProperties注解生效
 public class MylitemallApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(MylitemallApplication.class, args);
     }

@@ -1,10 +1,15 @@
 package com.cer.mall.mylitemall.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
-import java.util.Date;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-public class UmsAdmin implements Serializable {
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Set;
+
+public class UmsAdmin implements UserDetails,Serializable {
     private Long id;
 
     private String username;
@@ -32,6 +37,9 @@ public class UmsAdmin implements Serializable {
     @ApiModelProperty(value = "帐号启用状态：0->禁用；1->启用")
     private Integer status;
 
+    @ApiModelProperty(value = "权限列表")
+    private Set<? extends GrantedAuthority> authorities;//权限列表
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -42,16 +50,48 @@ public class UmsAdmin implements Serializable {
         this.id = id;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
     public String getUsername() {
-        return username;
+        return this.username;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.authorities;
+    }
+
+    public UmsAdmin setAuthorities(Set<? extends GrantedAuthority> authorities) {
+        this.authorities = authorities;
+        return this;
     }
 
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
