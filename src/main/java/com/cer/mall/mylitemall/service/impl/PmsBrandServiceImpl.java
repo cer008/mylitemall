@@ -5,6 +5,8 @@ import com.cer.mall.mylitemall.mbg.model.PmsBrand;
 import com.cer.mall.mylitemall.mbg.model.PmsBrandExample;
 import com.cer.mall.mylitemall.service.PmsBrandService;
 import com.github.pagehelper.PageHelper;
+import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,5 +54,11 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     @Override
     public PmsBrand getBrand(Long id) {
         return brandMapper.selectByPrimaryKey(id);
+    }
+
+    @Test
+    public void test (){
+        StringBuilder sb = new StringBuilder();
+        StringBuffer sb1 = new StringBuffer();
     }
 }
