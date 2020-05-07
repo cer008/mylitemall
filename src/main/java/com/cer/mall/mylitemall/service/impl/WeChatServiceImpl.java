@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -61,7 +62,7 @@ public class WeChatServiceImpl implements WeChatService {
         authoritiesSet.add(new SimpleGrantedAuthority("test:list"));
         authoritiesSet.add(new SimpleGrantedAuthority("ddd:list"));
         user.setAuthorities(authoritiesSet);
-        HashMap<String,Object> hashMap = new HashMap<>();
+        Map<String,Object> hashMap = new HashMap<String, Object>();
         hashMap.put("userName",user.getUsername());
         hashMap.put("authorities",authoritiesSet);
         String token = jwtTokenUtil.generateToken(user);
